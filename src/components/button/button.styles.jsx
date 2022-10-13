@@ -22,11 +22,6 @@ export const BaseButton = styled.button`
     justify-content: center;
     align-items: center;
   
-    &:hover {
-      background-color: white;
-      color: black;
-      border: 1px solid black;
-    }
 `
 
 export const GoogleSignInButton = styled(BaseButton)`

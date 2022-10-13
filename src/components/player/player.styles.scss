@@ -1,0 +1,56 @@
+.player-info-container {
+    width: 100vw;
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 30px;
+    margin-left: 150px;
+
+    .remove-player-img {
+        width: 30%;
+        height: 100%;
+        display: flex;
+        justify-content: flex-start;
+        
+
+        img {
+            width: 40px;
+            height: 40px;
+            margin: 10px;
+
+        }
+        
+    }
+
+    .player-info {
+        width: 80%;
+        height: 100%;
+        margin-right: 100px;
+        display: flex;
+        justify-content: space-around;
+        border: 1px solid white;
+        border-radius: 10px;
+        box-shadow: 5px 5px;
+        
+        .player-name {
+            width: 70%;
+            height: 100%;
+            font-size: 20px;
+            
+        }
+
+        .player-points {
+            width: 30%;
+            height: 100%;
+            font-size: 20px;
+            display: flex;
+            justify-content: flex-end;
+        }
+        h2 {
+            padding-left: 5px ;
+            padding-right: 5px ;
+        }
+    }
+
+}

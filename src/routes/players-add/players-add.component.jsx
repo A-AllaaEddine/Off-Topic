@@ -10,57 +10,35 @@ import Player from '../../components/player/player.commonent';
 import Button from '../../components/button/button.component';
 import AddPlayerWindow from '../../components/add-player/add-player.component';
 
-const Players = [
-    {
-        id: 1,
-        name: 'robin',
-        points: 0
-    },
-    {
-        id: 2,
-        name: 'hood',
-        points: 0
-    },
-    {
-        id: 3,
-        name: 'Abedlouadoud',
-        points: 0
-    },{
-        id: 4,
-        name: 'Abedlouadoud',
-        points: 0
-    },{
-        id: 5,
-        name: 'Abedlouadoud',
-        points: 0
-    },{
-        id: 6,
-        name: 'Abedlouadoud',
-        points: 0
-    },
-];
 
 
 
-const PlayersAdd = () => {
+const AddPlayers = () => {
     const navigate = useNavigate();
-    const { playersArray, isAddPlayerWindowOpen, setIsAddPlayerWindowOpen } = useContext(PlayersContext);
+    const { playersArray, isAddPlayerWindowOpen, setIsAddPlayerWindowOpen, setIsImposter } = useContext(PlayersContext);
 
 
     const goToSelectTopic = () => {
-        console.log(playersArray.length);
-        if (playersArray.length < 3) {
-            alert(`Please add ${3-playersArray.length} more players to start the game`);
+        if (playersArray.length < 4) {
+            alert(`Please add ${4-playersArray.length} more players to start the game`);
             return;
         }
+        
         navigate('/navigate/topic');
+        setIsImposter();
     }
 
-    const toogleAddPlayerWindows = () => setIsAddPlayerWindowOpen(!isAddPlayerWindowOpen);
+    const toogleAddPlayerWindows = () => {
+        if (playersArray.length >= 10) {
+            alert("You have reached the maximum allowed players");
+            return;
+        }
+        setIsAddPlayerWindowOpen(!isAddPlayerWindowOpen);
+    }
 
     return (
         <div className='add-players-container'>
-            <h3>Add 3 Players at least then press next</h3>
+            <h3>Add 4 Players at least then press next</h3>
             <div className='players-container'>
                 {playersArray.map((player) => {
                 return (
@@ -79,4 +57,4 @@ const PlayersAdd = () => {
     )
 }
 
-export default PlayersAdd;
+export default AddPlayers;

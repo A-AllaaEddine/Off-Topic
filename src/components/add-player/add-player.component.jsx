@@ -17,11 +17,7 @@ const AddPlayerWindow = () => {
     const { playerName } = formFields;
     const { addPlayer, isAddPlayerWindowOpen, setIsAddPlayerWindowOpen } = useContext(PlayersContext);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('submited');
-
-    }
+    
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -33,7 +29,7 @@ const AddPlayerWindow = () => {
         if (!playerName) return;
 
         const playerObj = {
-            id: (Math.random() * 10),
+            id: `${playerName}`,
             name: `${playerName}`,
             points: 0
         }
@@ -50,7 +46,7 @@ const AddPlayerWindow = () => {
     return (
         <div className='add-player-container'>
             <span>You can add more players or start the game</span>
-            <form onSubmit={handleSubmit}>
+            <form>
                 <div className='input-container'>
                     <img src={AddPlayerIcon} alt='add player' onClick={addPlayerHandler}/>
                     <input 

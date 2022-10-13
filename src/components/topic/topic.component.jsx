@@ -7,12 +7,12 @@ import { TopicsContext } from '../../context/topic.context';
 
 const Topic = ({ topic }) => {
     const navigate = useNavigate();
-    const { setTopic } = useContext(TopicsContext);
+    const { setTopicType } = useContext(TopicsContext);
     const { name } = topic;
 
     const goToStart = () => {
         navigate('/play');
-        setTopic(name)
+        setTopicType(name);
     }
     return (
         <div className='topic-info-container' key={topic.id}>

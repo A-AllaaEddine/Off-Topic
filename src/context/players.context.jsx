@@ -1,20 +1,41 @@
 import { useState, createContext } from "react";
 
 
+const givePlayerId = (playersArray) => {
+    return playersArray.map((player, key) => ({
+        id: key,
+        ...player
+    }))
+}
 
 const addPlayerToArray = (playersArray, playerToAdd) => {
-    return [...playersArray, {...playerToAdd}];
+    return [...playersArray, {...playerToAdd, isImposter: false}];
 }
 
 const removePlayerFromArray = (playersArray, playerToRemove) => {
     return playersArray.filter(player => player.id !== playerToRemove.id);
 }
 
+const setImposter = (playersArray) => {
+    const imposterId = Math.floor(Math.random() * playersArray.length);
+
+    return playersArray.map((player, key) => key === imposterId ? 
+    {...player, isImposter: true
+
+    } : 
+    {... player, isImposter: false}
+    );
+}
+
+
+
 export const PlayersContext = createContext({
     playersArray: [],
     setPlayersArray: () => {},
+    addPlayer: () => {},
+    removePlayer: () => {},
     isAddPlayerWindowOpen: false,
-    setIsAddPlayerWindowOpen: () => {}
+    setIsImposter: () => {}
 })
 
 
@@ -37,7 +58,18 @@ export const PlayersPorvider = ({ children }) => {
         setPlayersArray(newPlayersArray);
     }
 
-    const value = {playersArray, isAddPlayerWindowOpen, setIsAddPlayerWindowOpen, addPlayer, removePlayer};
+    const setIsImposter = () => {
+        setImposter(playersArray);
+    }
+
+    const value = {
+        playersArray, 
+        isAddPlayerWindowOpen, 
+        setIsAddPlayerWindowOpen, 
+        addPlayer, 
+        removePlayer,
+        setIsImposter
+    };
 
     return (
         <PlayersContext.Provider value={value}>

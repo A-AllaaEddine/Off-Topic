@@ -3,15 +3,19 @@ import { createContext, useState } from "react";
 import { Topics } from "../utils/topic.data";
 
 export const TopicsContext = createContext({
-    topics: Topics,
-    topic: null
+    topicsTypes: Topics,
+    topicType: '',
+    setTopicType: () => {},
+    topic: '',
+    setTopic: () => {}
 })
 
 export const TopicsProvider = ({ children }) => {
-    const [topics, setTopics] = useState(Topics);
-    const [topic, setTopic] = useState(Topics);
+    const [topicsTypes, setTopicsTypes] = useState(Topics);
+    const [topicType, setTopicType] = useState('');
+    const [topic, setTopic] = useState('');
 
-    const value = { topics, topic, setTopic };
+    const value = { topicsTypes, topicType, setTopicType };
 
     return (
         <TopicsContext.Provider value={value}>

@@ -1,6 +1,6 @@
 import Home from './routes/home/home.component';
 import Navigation from './routes/navigation/navigation.component';
-import PlayersAdd from './routes/players-add/players-add.component';
+import AddPlayers from './routes/players-add/players-add.component';
 import TopicSelect from './routes/topic-select/topic-select.component';
 import Play from './routes/play/play.component';
 
@@ -14,7 +14,7 @@ const  App = () => {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path="/navigate" element={<Navigation />}>
-          <Route path='addplayer' element={<PlayersAdd />} />
+          <Route path='addplayer' element={<AddPlayers />} />
           <Route path='topic' element={<TopicSelect />} />
         </Route>
         <Route path='/play' element={<Play />} />

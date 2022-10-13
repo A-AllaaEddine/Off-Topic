@@ -6,12 +6,19 @@ import reportWebVitals from './reportWebVitals';
 
 import { BrowserRouter } from 'react-router-dom';
 
+import { TopicsProvider } from './context/topic.context';
+import { PlayersPorvider } from './context/players.context';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <PlayersPorvider>
+      <TopicsProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </TopicsProvider>
+    </PlayersPorvider>
   </React.StrictMode>
 );
 

@@ -1,0 +1,19 @@
+.select-topic-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    .topics-container {
+        display: grid;
+        width: 80%;
+        height: 60%;
+        overflow-y: auto;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 30px;
+        row-gap: 0px;
+        padding: 10px;
+    }
+}

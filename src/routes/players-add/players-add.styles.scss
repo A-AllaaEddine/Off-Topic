@@ -1,4 +1,4 @@
-.add-player-container {
+.add-players-container {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -8,13 +8,19 @@
 
     .players-container {
         width: auto;
-        height: 400px;
+        height: 500px;
         overflow-y: auto;
     }
 
     .player-next-container {
+        display: flex;
+        justify-content: space-around;
         position: absolute;
         bottom: 0;
         margin-bottom: 40px;
+
+        img {
+            margin-left: 25px;
+        }
     }
 }

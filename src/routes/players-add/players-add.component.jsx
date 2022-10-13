@@ -1,9 +1,14 @@
-import './player-add.styles.scss';
+import './players-add.styles.scss';
 
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { PlayersContext } from '../../context/players.context';
+
+import AddPlayersIcon from '../../assets/AddPlayers.png';
 
 import Player from '../../components/player/player.commonent';
 import Button from '../../components/button/button.component';
+import AddPlayerWindow from '../../components/add-player/add-player.component';
 
 const Players = [
     {
@@ -37,16 +42,27 @@ const Players = [
 
 
 
-const PlayerAdd = () => {
+const PlayersAdd = () => {
     const navigate = useNavigate();
+    const { playersArray, isAddPlayerWindowOpen, setIsAddPlayerWindowOpen } = useContext(PlayersContext);
+
+
     const goToSelectTopic = () => {
+        console.log(playersArray.length);
+        if (playersArray.length < 3) {
+            alert(`Please add ${3-playersArray.length} more players to start the game`);
+            return;
+        }
         navigate('/navigate/topic');
     }
+
+    const toogleAddPlayerWindows = () => setIsAddPlayerWindowOpen(!isAddPlayerWindowOpen);
+
     return (
-        <div className='add-player-container'>
+        <div className='add-players-container'>
             <h3>Add 3 Players at least then press next</h3>
             <div className='players-container'>
-                {Players.map((player) => {
+                {playersArray.map((player) => {
                 return (
                         <Player key={player.id} player={player} />
                     )
@@ -54,9 +70,13 @@ const PlayerAdd = () => {
             </div>
             <div className='player-next-container'>
                 <Button onClick={goToSelectTopic}>NEXT</Button>
+                <img src={AddPlayersIcon} alt='add player' onClick={toogleAddPlayerWindows}/>
             </div>
+            {
+                isAddPlayerWindowOpen && <AddPlayerWindow />
+            }
         </div>
     )
 }
 
-export default PlayerAdd;
+export default PlayersAdd;

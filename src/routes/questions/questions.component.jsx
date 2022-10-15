@@ -4,7 +4,7 @@ import './questions.styles.scss';
 import Button from '../../components/button/button.component';
 
 import { useNavigate } from 'react-router-dom';
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { PlayersContext } from '../../context/players.context';
 
 
@@ -18,6 +18,10 @@ const Questions = () => {
     const navigate = useNavigate();
     const player1 = twoRandomPlayers[0];
     const player2 = twoRandomPlayers[1];
+
+    useEffect(() => {
+        return () => i = 0;
+    }, [])
 
     const nextQuestionHnadler = () => {
         i = i + 1;

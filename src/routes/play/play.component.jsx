@@ -4,7 +4,7 @@ import Button from '../../components/button/button.component';
 import PlayerInfo from '../../components/player-info/player-info.component';
 
 import { useNavigate } from 'react-router-dom';
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { PlayersContext } from '../../context/players.context';
 
 
@@ -15,6 +15,10 @@ const Play = () => {
     const [ player, setPlayer ] = useState(playersArray[0]);
     const [ nextPlayer, setNextPlayer ] = useState(false);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        return () => i = 0;
+    }, [])
 
     const imposterHnadler = () => {
         i = i + 1;

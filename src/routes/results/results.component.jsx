@@ -16,6 +16,10 @@ const Results = () => {
         navigate('/navigate/vote')
     }
 
+    const goToSelectPlayers = () => {
+        navigate('/');
+    }
+
     return (
         <div className='resutls-container'>
             {
@@ -42,6 +46,9 @@ const Results = () => {
                                     )
                                 })
                             }
+                        </div>
+                        <div className='results-button'>
+                            <Button onClick={goToSelectPlayers} >NEW GAME</Button>
                         </div>
                     </div>
                 )

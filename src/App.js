@@ -7,11 +7,21 @@ import Questions from './routes/questions/questions.component';
 import Vote from './routes/vote/vote.component';
 import Results from './routes/results/results.component';
 
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 import './App.scss';
 
 const  App = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+    useEffect(() => {
+        if ((location.pathname == "/navigate/addPlayer") || (location.pathname == "/navigate/topic") || (location.pathname == "/navigate/play") || (location.pathname == "/navigate/questions") || (location.pathname == "/navigate/vote") || (location.pathname == "/navigate/resutls")) {
+            navigate("/");
+        }
+    }, []);
+
   return (
     <div className='app-container'>
       <Routes>

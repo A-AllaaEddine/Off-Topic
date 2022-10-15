@@ -1,6 +1,6 @@
 import './vote.styles.scss';
 
-import { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { PlayersContext } from '../../context/players.context';
 import { TopicsContext } from '../../context/topic.context';
 import { useNavigate } from 'react-router-dom';
@@ -24,7 +24,16 @@ const Vote = () => {
     const [ newPlayersArray, setNewPlayersArray ] = useState(playersArray.filter(Player => Player.id !== votingPlayer.id));
     const navigate = useNavigate();
 
-    const { topics } = topicType;
+    useEffect(() => {
+        return () => i = 0;
+    }, [])
+
+    let topics;
+    if (topicType) {
+        topics = topicType.topics;
+    } else {
+        topics  = [];
+    }
 
     
     const playerVoteHandler = (votedPlayer) => {
@@ -53,10 +62,10 @@ const Vote = () => {
             {
                 !isImposterVoting ? 
             (<div className='players-vote-container'>
-                <h2>{votingPlayer.name}</h2>
+                <h2>{ votingPlayer && votingPlayer.name}</h2>
                 <span>vote for the player you think is OFF-TOPIC</span>
                 <div className='voting-players-container'>
-                    {
+                    {newPlayersArray &&
                     newPlayersArray.map((votedPlayer) => {
                         return (
                             <div key={votedPlayer.id} onClick={() => playerVoteHandler(votedPlayer)}>
@@ -68,10 +77,10 @@ const Vote = () => {
                 </div>
             </div>) : (
             <div className='imposter-vote-container'>
-                <h2>{imposter.name}</h2>
+                <h2>{imposter && imposter.name}</h2>
                 <span>Which one is the Topic :</span>
                 <div className='voting-topics-container'>
-                    {
+                    {topics &&
                         topics.map((topic) => {
                             return (
                                 <div key={topic.id} onClick={() => imposterVoteHandler(topic)} className='voting-topics'>

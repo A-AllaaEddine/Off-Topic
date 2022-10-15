@@ -1,21 +1,41 @@
 import { createContext, useState } from "react";
 
-import { Topics } from "../utils/topic.data";
+import { TopicsTypes } from "../utils/topic.data";
+
+
+const getRandomTopic = ( topicType ) => {
+    const { topics } = topicType;
+    const topicId =  Math.floor(Math.random() * topics.length);
+    return topics[topicId];
+}
 
 export const TopicsContext = createContext({
-    topicsTypes: Topics,
-    topicType: '',
+    topicsTypes: [],
+    topicType: null,
     setTopicType: () => {},
-    topic: '',
+    setTopicTypeInContext: () => {},
+    topic: null,
     setTopic: () => {}
 })
 
 export const TopicsProvider = ({ children }) => {
-    const [topicsTypes, setTopicsTypes] = useState(Topics);
-    const [topicType, setTopicType] = useState('');
-    const [topic, setTopic] = useState('');
+    const [topicsTypes, setTopicsTypes] = useState(TopicsTypes);
+    const [topicType, setTopicType] = useState(null);
+    const [topic, setTopic] = useState(null);
 
-    const value = { topicsTypes, topicType, setTopicType };
+
+    const setTopicTypeInContext = (TopicType) => {
+        setTopicType(TopicType);
+        
+    }
+
+    const selectRandomTopic = (topicType) => {
+        const selectedTopic = getRandomTopic(topicType);
+        setTopic(selectedTopic);
+    }
+
+
+    const value = { topicsTypes, topicType, setTopicTypeInContext, topic, selectRandomTopic };
 
     return (
         <TopicsContext.Provider value={value}>

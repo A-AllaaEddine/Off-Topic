@@ -8,8 +8,8 @@ const Home = () => {
 
     const navigate = useNavigate();
 
-    const goToAddPlayer = () => {
-        navigate('/navigate/addplayer');
+    const goToTopicSelect = () => {
+        navigate('/navigate/addPlayer');
     }
     return (
         <div className='home-container'>
@@ -17,7 +17,7 @@ const Home = () => {
                 <img src={OffTopic} alt='off-topic' />
             </div>
             <div className='start-button-container'>
-                <Button  onClick={goToAddPlayer}>START</Button>
+                <Button  onClick={goToTopicSelect}>START</Button>
             </div>
         </div>
     )

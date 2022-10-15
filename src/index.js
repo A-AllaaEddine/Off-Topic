@@ -12,13 +12,13 @@ import { PlayersPorvider } from './context/players.context';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <PlayersPorvider>
-      <TopicsProvider>
+    <TopicsProvider>
+      <PlayersPorvider>
         <BrowserRouter>
           <App />
         </BrowserRouter>
-      </TopicsProvider>
-    </PlayersPorvider>
+      </PlayersPorvider>
+    </TopicsProvider>
   </React.StrictMode>
 );
 

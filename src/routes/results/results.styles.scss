@@ -1,0 +1,52 @@
+.resutls-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    .imposter-results-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 170px;
+
+        .results-button {
+            margin-top: 80px;
+        }
+    }
+
+    .players-results-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+        .players-resutls {
+            width: 100%;
+            height: 400px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+
+            .players {
+                width: 60%;
+                height: auto;
+                display: flex;
+                text-align: center;
+                justify-content: space-between;
+                align-items: flex-start;
+                border-bottom: 1px dotted black;
+            
+            }
+        }
+    }
+
+}

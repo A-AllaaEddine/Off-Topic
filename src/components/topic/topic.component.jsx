@@ -5,17 +5,18 @@ import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { TopicsContext } from '../../context/topic.context';
 
-const Topic = ({ topic }) => {
+const Topic = ({ topicType }) => {
     const navigate = useNavigate();
-    const { setTopicType } = useContext(TopicsContext);
-    const { name } = topic;
+    const { setTopicTypeInContext, selectRandomTopic } = useContext(TopicsContext);
+    const { name } = topicType;
 
     const goToStart = () => {
-        navigate('/play');
-        setTopicType(name);
+        navigate('/navigate/play');
+        setTopicTypeInContext(topicType);
+        selectRandomTopic(topicType);
     }
     return (
-        <div className='topic-info-container' key={topic.id}>
+        <div className='topic-info-container'>
             <img alt='' onClick={goToStart}/>
             <div className='topic-info'>
                 <span className='topic-name'>{name}</span>

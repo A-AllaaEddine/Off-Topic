@@ -1,0 +1,55 @@
+.vote-container {
+    width: 100%;
+    height: 100%;
+
+    .players-vote-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+        .voting-players-container{
+            width: 100%;
+            height: 500px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding-left: 25%;
+            padding-left: 25%;
+            
+        }
+    }
+
+    .imposter-vote-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+
+        .voting-topics-container {
+            width: 100%;
+            height: 500px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            
+
+            .voting-topics {
+                width: 80%;
+                height: 100%;
+                margin: 10px;
+                border: 1px solid white;
+                border-radius: 10px;
+                box-shadow: 5px 5px;
+                text-align: center;
+
+                
+            }
+        }
+    }
+}

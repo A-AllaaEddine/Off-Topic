@@ -5,7 +5,6 @@
     justify-content: space-around;
     align-items: center;
     margin-top: 30px;
-    margin-left: 150px;
 
     .remove-player-img {
         width: 30%;
@@ -32,6 +31,10 @@
         border: 1px solid white;
         border-radius: 10px;
         box-shadow: 5px 5px;
+
+        &.vote {
+            text-align: center;
+        }
         
         .player-name {
             width: 70%;

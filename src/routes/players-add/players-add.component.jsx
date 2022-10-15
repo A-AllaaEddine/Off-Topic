@@ -15,7 +15,7 @@ import AddPlayerWindow from '../../components/add-player/add-player.component';
 
 const AddPlayers = () => {
     const navigate = useNavigate();
-    const { playersArray, isAddPlayerWindowOpen, setIsAddPlayerWindowOpen, setIsImposter } = useContext(PlayersContext);
+    const { playersArray, isAddPlayerWindowOpen, setIsAddPlayerWindowOpen, selectRandomImposter } = useContext(PlayersContext);
 
 
     const goToSelectTopic = () => {
@@ -25,7 +25,7 @@ const AddPlayers = () => {
         }
         
         navigate('/navigate/topic');
-        setIsImposter();
+        selectRandomImposter();
     }
 
     const toogleAddPlayerWindows = () => {

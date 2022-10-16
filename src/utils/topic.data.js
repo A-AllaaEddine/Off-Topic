@@ -2,7 +2,7 @@ export const TopicsTypes = [
     {
         id: 1,
         name: 'animals',
-        imageUrl: '',
+        imageUrl: 'https://i.ibb.co/FVRQLKr/Animals.png',
         topics: [
             {
                 id: 1,
@@ -37,137 +37,155 @@ export const TopicsTypes = [
     },{
         id: 2,
         name: 'clothes',
-        imageUrl: '',
+        imageUrl: 'https://i.ibb.co/RbF6BrW/Clothes.png',
         topics: [
             {
                 id: 1,
-                name: 'Lion'
+                name: 'Jeans'
             },
             {
                 id: 2,
-                name: 'Bear'
+                name: 'Socks'
             },
             {
                 id: 3,
-                name: 'Bird'
+                name: 'Shorts'
             },
             {
                 id: 4,
-                name: 'Wolf'
+                name: 'Jacket'
             },
             {
                 id: 5,
-                name: 'Cat'
+                name: 'Ring'
             },
             {
                 id: 6,
-                name: 'Mouse'
+                name: 'Heels'
             },
             {
                 id: 7,
-                name: 'Dog'
+                name: 'Skirt'
+            },
+            {
+                id: 9,
+                name: 'Watch'
+            },
+            {
+                id: 10,
+                name: 'Hat'
+            },
+            {
+                id: 11,
+                name: 'Glasses'
             }
         ]
     },{
         id: 3,
-        name: 'food',
-        imageUrl: '',
+        name: 'fruits',
+        imageUrl: 'https://i.ibb.co/p13nWmg/Fruits.png',
         topics: [
             {
                 id: 1,
-                name: 'Lion'
+                name: 'Apple'
             },
             {
                 id: 2,
-                name: 'Bear'
+                name: 'Banna'
             },
             {
                 id: 3,
-                name: 'Bird'
+                name: 'Orange'
             },
             {
                 id: 4,
-                name: 'Wolf'
+                name: 'Lemon'
             },
             {
                 id: 5,
-                name: 'Cat'
+                name: 'Watermelon'
             },
             {
                 id: 6,
-                name: 'Mouse'
+                name: 'Mango'
             },
             {
                 id: 7,
-                name: 'Dog'
+                name: 'Grapes'
+            },
+            {
+                id: 8,
+                name: 'Strawberries'
+            },
+            {
+                id: 9,
+                name: 'Pineapple'
+            },
+            {
+                id: 10,
+                name: 'Kiwi'
+            },
+            {
+                id: 11,
+                name: 'Pear'
+            },
+            {
+                id: 12,
+                name: 'Avocado'
             }
         ]
     },{
         id: 4,
-        name: 'fruits',
-        imageUrl: '',
-        topics: [
-            {
-                id: 1,
-                name: 'Lion'
-            },
-            {
-                id: 2,
-                name: 'Bear'
-            },
-            {
-                id: 3,
-                name: 'Bird'
-            },
-            {
-                id: 4,
-                name: 'Wolf'
-            },
-            {
-                id: 5,
-                name: 'Cat'
-            },
-            {
-                id: 6,
-                name: 'Mouse'
-            },
-            {
-                id: 7,
-                name: 'Dog'
-            }
-        ]
-    },{
-        id: 5,
         name: 'vegetables',
-        imageUrl: '',
+        imageUrl: 'https://i.ibb.co/k49b0Zd/Vegetables.png',
         topics: [
             {
                 id: 1,
-                name: 'Lion'
+                name: 'Tomato'
             },
             {
                 id: 2,
-                name: 'Bear'
+                name: 'Potato'
             },
             {
                 id: 3,
-                name: 'Bird'
+                name: 'Cucumber'
             },
             {
                 id: 4,
-                name: 'Wolf'
+                name: 'Onion'
             },
             {
                 id: 5,
-                name: 'Cat'
+                name: 'Carrot'
             },
             {
                 id: 6,
-                name: 'Mouse'
+                name: 'Corn'
             },
             {
                 id: 7,
-                name: 'Dog'
+                name: 'Brinjal'
+            },
+            {
+                id: 8,
+                name: 'Pepper'
+            },
+            {
+                id: 9,
+                name: 'Radish'
+            },
+            {
+                id: 10,
+                name: 'Spinach'
+            },
+            {
+                id: 11,
+                name: 'Peas'
+            },
+            {
+                id: 12,
+                name: 'Mushroom'
             }
         ]
     },

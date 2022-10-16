@@ -8,7 +8,8 @@ import { TopicsContext } from '../../context/topic.context';
 const Topic = ({ topicType }) => {
     const navigate = useNavigate();
     const { setTopicTypeInContext, selectRandomTopic } = useContext(TopicsContext);
-    const { name } = topicType;
+    const { name, imageUrl } = topicType;
+    console.log(name);
 
     const goToStart = () => {
         navigate('/navigate/play');
@@ -17,7 +18,7 @@ const Topic = ({ topicType }) => {
     }
     return (
         <div className='topic-info-container'>
-            <img alt='' onClick={goToStart}/>
+            <img src={imageUrl} alt='topic' onClick={goToStart}/>
             <div className='topic-info'>
                 <span className='topic-name'>{name}</span>
             </div>

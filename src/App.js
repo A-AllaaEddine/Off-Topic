@@ -6,6 +6,7 @@ import Play from './routes/play/play.component';
 import Questions from './routes/questions/questions.component';
 import Vote from './routes/vote/vote.component';
 import Results from './routes/results/results.component';
+import AdSense from 'react-adsense';
 
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -34,7 +35,9 @@ const  App = () => {
           <Route path='vote' element={<Vote />} />
           <Route path='resutls' element={<Results />} />
         </Route>
-      </Routes>
+      </Routes>     
+      {/* <GoogleAds />  */}
+      <AdSense.Google client='ca-pub-6491978736747955' slot='8205009337' style={{ display: 'block' }} />
     </div>
   )
 }

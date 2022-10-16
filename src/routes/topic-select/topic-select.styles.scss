@@ -6,6 +6,10 @@
     justify-content: flex-start;
     align-items: center;
 
+    @media screen and (min-width: 800px) {
+        width: 60%;
+    }
+
     .topics-container {
         display: grid;
         width: 80%;
@@ -15,5 +19,11 @@
         column-gap: 30px;
         row-gap: 0px;
         padding: 10px;
+
+        @media screen and (min-width: 800px) {
+            width: 80%;
+            height: 80%;
+            row-gap: 10px;
+        }
     }
 }

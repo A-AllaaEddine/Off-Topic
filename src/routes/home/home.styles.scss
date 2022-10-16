@@ -5,22 +5,44 @@
     align-items: center;
     padding-top: 40px;
 
+    @media screen and (min-width: 800px) {
+        width: 60%;
+    }
 
     .image-container {
         width: 90vw;
         height: 200px;
         margin-top: 60px;
+
+        @media screen and (min-width: 800px) {
+            width: 90vw;
+            height: 200px;
+            margin-top: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
         
         img {
             width: 100%;
             height: 100%;
             transform: rotate(-10deg);
+
+            @media screen and (min-width: 800px) {
+                width: 60%;
+                height: 100%;
+                transform: rotate(-10deg);
+            }
         }
 
     }
 
     .start-button-container{
         margin-top: 200px;
+
+        @media screen and (min-width: 800px) {
+            margin-top: 300px;
+        }
     }
 
 }

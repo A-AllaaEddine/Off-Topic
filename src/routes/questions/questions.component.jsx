@@ -74,7 +74,7 @@ const Questions = () => {
                 ) : (
                     <div className='more-questions-container'>
                         <div className='more-questions-text'>
-                            <span>If you have more questions, it's the time to ask them</span>
+                            <span>If you have more questions, it's the time to ask them</span><br/>
                             <span>Otherwise press VOTE to vote for the imposter</span>
                         </div>
                         <div className='vote-button'>

@@ -2,4 +2,10 @@
     width: 100vw;
     height: 100vh;
     background-color: #69C0DC;
+
+    @media screen and (min-width: 800px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }

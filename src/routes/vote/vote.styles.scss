@@ -2,12 +2,24 @@
     width: 100%;
     height: 100%;
 
+    @media screen and (min-width: 800px) {
+        width: 60%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
     .players-vote-container {
         width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
+
+        @media screen and (min-width: 800px) {
+            width: 80%;
+        }
 
         .voting-players-container{
             width: 100%;
@@ -28,6 +40,10 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
+
+        @media screen and (min-width: 800px) {
+            width: 80%;
+        }
 
         .voting-topics-container {
             width: 100%;

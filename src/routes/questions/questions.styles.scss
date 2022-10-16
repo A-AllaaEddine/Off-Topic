@@ -6,6 +6,9 @@
     justify-content: center;
     align-items: center;
 
+    @media screen and (min-width: 800px) {
+        width: 60%;
+    }
 
     .question-time-container {
         display: flex;
@@ -14,6 +17,10 @@
         justify-content: space-around;
         margin-left: 10px;
         margin-right: 10px;
+
+        @media screen and (min-width: 800px) {
+            width: 70%;
+        }
 
 
         .question-time-text {
@@ -37,6 +44,12 @@
         margin-left: 10px;
         margin-right: 10px;
 
+        @media screen and (min-width: 800px) {
+            width: 70%;
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+
 
         .player-question-text {
             width: 100%;
@@ -58,6 +71,10 @@
         justify-content: space-around;
         margin-left: 10px;
         margin-right: 10px;
+
+        @media screen and (min-width: 800px) {
+            width: 70%;
+        }
 
         .more-questions-text {
             width: 100%;

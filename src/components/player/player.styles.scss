@@ -6,6 +6,10 @@
     align-items: center;
     margin-top: 30px;
 
+    @media screen and (min-width: 800px) {
+        width: 100%;
+    }
+
     .remove-player-img {
         width: 30%;
         height: 100%;

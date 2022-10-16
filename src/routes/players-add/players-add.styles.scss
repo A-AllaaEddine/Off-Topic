@@ -5,12 +5,22 @@
     justify-content: flex-start;
     align-items: center;
 
+    @media screen and (min-width: 800px) {
+        width: 60%;
+    }
+
 
     .players-container {
         width: auto;
         height: 500px;
         overflow-y: auto;
         padding-left: 150px;
+
+        @media screen and (min-width: 800px) {
+            width: 60vh;
+            height: 450px;
+            padding-left: 50px;
+        }
     }
 
     .player-next-container {

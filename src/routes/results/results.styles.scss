@@ -5,6 +5,10 @@
     flex-direction: column;
     align-items: center;
 
+    @media screen and (min-width: 800px) {
+        width: 60%;
+    }
+
 
     .imposter-results-container {
         width: 100%;
@@ -13,11 +17,19 @@
         flex-direction: column;
         align-items: center;
         margin-top: 170px;
+        background-color: green;
+
+        @media screen and (min-width: 800px) {
+            margin-top: 0px;
+            justify-content: center;
+            background-color: green;
+        }
 
         .results-button {
             margin-top: 80px;
         }
     }
+
 
     .players-results-container {
         width: 100%;

@@ -3,8 +3,16 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    margin-top: 100px;
     align-items: center;
+
+    color: white;
+
+    @media screen and (min-width: 800px) {
+        justify-content: center;
+        margin-top: 0px;
+    }
     
 
 

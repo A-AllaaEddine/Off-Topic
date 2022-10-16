@@ -1,7 +1,12 @@
 .app-container {
     width: 100vw;
     height: 100vh;
-    background-color: #69C0DC;
+    background-color: #bebfc5;
+    background-image: linear-gradient(10deg, #6c7086 20%, #4a38ec 180%);
+    // background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(0,152,155,1) 0.1%, rgba(0,94,120,1) 94.2% );
+
+
+
 
     @media screen and (min-width: 800px) {
         display: flex;

@@ -1,7 +1,7 @@
 import './home.styles.scss';
 import { useNavigate } from 'react-router-dom';
 
-import OffTopic from '../../assets/Off-Topic.png';
+import OffTopic from '../../assets/off-topic-2.PNG';
 import Button from '../../components/button/button.component';
 
 const Home = () => {

@@ -14,15 +14,10 @@
         width: 30%;
         height: 100%;
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
+        align-items: center;
         
 
-        img {
-            width: 40px;
-            height: 40px;
-            margin: 10px;
-
-        }
         
     }
 
@@ -32,9 +27,11 @@
         margin-right: 100px;
         display: flex;
         justify-content: space-around;
-        border: 1px solid white;
-        border-radius: 10px;
-        box-shadow: 5px 5px;
+        border: 1px solid black;
+        background-image: linear-gradient( 135deg, #FDEB71 10%, #F8D800 100%);
+        color: blacks;
+        border-radius: 15px;
+        box-shadow: 3px 3px #3b3b3b;
 
         &.vote {
             text-align: center;

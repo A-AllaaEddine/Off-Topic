@@ -9,12 +9,12 @@ export const BaseButton = styled.button`
     line-height: 50px;
     padding: 0 35px 0 35px;
     font-size: 20px;
-    background-color: #FF4F4F;
+    background-image: linear-gradient( 135deg, #FDEB71 10%, #F8D800 100%);
     border-radius: 20px;
-    box-shadow: 3px 7px #A74E4E;
-    color: white;
+    box-shadow: 2px 5px #616160;
+    color: nlack;
     text-transform: uppercase;
-    font-family: 'Open Sans';
+    font-family: 'Pacifico', cursive;
     font-weight: bolder;
     border: none;
     cursor: pointer;
@@ -24,12 +24,13 @@ export const BaseButton = styled.button`
   
 `
 
-export const GoogleSignInButton = styled(BaseButton)`
-    background-color: #4285f4;
-    color: white;
+export const IconButton = styled(BaseButton)`
+    min-width: 0px;
+    width: 50px;
+    padding: 0;
 
     &:hover {
-      background-color: #357ae8;
+      background-color: white;
       border: none;
     }
 `

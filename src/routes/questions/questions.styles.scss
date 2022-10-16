@@ -3,11 +3,16 @@
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    margin-top: 100px;
     align-items: center;
+
+    color: white;
 
     @media screen and (min-width: 800px) {
         width: 60%;
+        justify-content: center;
+        margin-top: 0px;
     }
 
     .question-time-container {
@@ -17,6 +22,10 @@
         justify-content: space-around;
         margin-left: 10px;
         margin-right: 10px;
+
+        h2 {
+            font-family: 'Pacifico', cursive;
+        }
 
         @media screen and (min-width: 800px) {
             width: 70%;
@@ -43,6 +52,10 @@
         justify-content: space-around;
         margin-left: 10px;
         margin-right: 10px;
+
+        h2 {
+            font-family: 'Pacifico', cursive;
+        }
 
         @media screen and (min-width: 800px) {
             width: 70%;
@@ -71,9 +84,11 @@
         justify-content: space-around;
         margin-left: 10px;
         margin-right: 10px;
+        margin-top: 20px;
 
         @media screen and (min-width: 800px) {
             width: 70%;
+            margin-top: 20px;
         }
 
         .more-questions-text {

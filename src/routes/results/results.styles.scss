@@ -5,6 +5,8 @@
     flex-direction: column;
     align-items: center;
 
+    color: white;
+
     @media screen and (min-width: 800px) {
         width: 60%;
     }
@@ -16,13 +18,11 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-top: 170px;
-        background-color: green;
+        margin-top: 130px;
 
         @media screen and (min-width: 800px) {
-            margin-top: 0px;
-            justify-content: center;
-            background-color: green;
+            margin-top: 150px;
+            justify-content: flex-start;
         }
 
         .results-button {

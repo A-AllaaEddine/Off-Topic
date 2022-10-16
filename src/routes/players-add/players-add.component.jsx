@@ -10,6 +10,9 @@ import Player from '../../components/player/player.commonent';
 import Button from '../../components/button/button.component';
 import AddPlayerWindow from '../../components/add-player/add-player.component';
 
+import { BUTTON_TYPES_CLASSES } from '../../components/button/button.component';
+import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
+
 
 
 
@@ -48,7 +51,7 @@ const AddPlayers = () => {
             </div>
             <div className='player-next-container'>
                 <Button onClick={goToSelectTopic}>NEXT</Button>
-                <img src={AddPlayersIcon} alt='add player' onClick={toogleAddPlayerWindows}/>
+                <Button buttonType={BUTTON_TYPES_CLASSES.icon} onClick={toogleAddPlayerWindows}><PersonAddAltIcon /></Button>
             </div>
             {
                 isAddPlayerWindowOpen && <AddPlayerWindow />

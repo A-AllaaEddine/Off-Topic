@@ -52,7 +52,7 @@ const Questions = () => {
                     <div className='question-time-container'>
                         <h2>Questions Time</h2>
                         <div className='question-time-text'>
-                            <span>Every player will get to ask another player a question about the topic</span>
+                            <span>Every player will get to ask another player a question about the topic.</span><br/>
                             <span>Pres NEXT for first question</span>
                         </div>
                         <div className='question-time-button'>
@@ -63,8 +63,8 @@ const Questions = () => {
                     (<div className='player-question-container'>
                         <h2>Questions Time</h2>
                         <div className='player-question-text'>
-                            <span><b>{player1.name}</b>,you can ask <b>{player2.name}</b> a question about the topic.</span><br/>
-                            <span>CAREFULLY pick your question, so the imposter won't find what the topic is.</span><br/>
+                            <span><b>{player1.name}</b>,  you can ask <b>{player2.name}</b>   a question about the topic.</span><br/>
+                            <span><b>CAREFULLY</b>  pick your question, so the imposter won't find what the topic is.</span><br/>
                             <span>Press next</span><br/>
                         </div>
                         <div className='player-question-button'>
@@ -74,8 +74,8 @@ const Questions = () => {
                 ) : (
                     <div className='more-questions-container'>
                         <div className='more-questions-text'>
-                            <span>If you have more questions, it's the time to ask them</span><br/>
-                            <span>Otherwise press VOTE to vote for the imposter</span>
+                            <span>If you have more questions, it's the time to ask them.</span><br/>
+                            <span>Otherwise press <b> VOTE </b> to vote for the imposter.</span>
                         </div>
                         <div className='vote-button'>
                             <Button onClick={goToVote}>VOTE</Button>

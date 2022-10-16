@@ -1,7 +1,11 @@
 import './navigation.styles.scss';
 import { useNavigate } from 'react-router-dom';
 
-import HomeButton from '../../assets/HomeButton.png'
+
+import HomeIcon from '@mui/icons-material/Home';
+
+import Button from '../../components/button/button.component';
+import { BUTTON_TYPES_CLASSES } from '../../components/button/button.component';
 
 import { Outlet } from 'react-router-dom';
 
@@ -14,7 +18,7 @@ const Navigation = () => {
         <>
             <div className='navigation-container'>
                 <div className='nav-img-container'>
-                    <img src={HomeButton} alt='Home' onClick={goToHome}/>
+                    <Button buttonType={BUTTON_TYPES_CLASSES.icon} onClick={goToHome}><HomeIcon/></Button>
                 </div>
             </div>
             <Outlet />

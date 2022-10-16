@@ -41,9 +41,9 @@ const Play = () => {
                 <PlayerInfo player={player} imposterHnadler={imposterHnadler}/>
                 :
                 (<div className='player-showcase-container'>
-                    <h2>{player.name}</h2>
+                    <h2>{player && player.name}</h2>
                     <div className='player-showcase-text'>
-                        <span>Give the phone to {player.name}</span><br/>
+                        <span>Give the phone to {player && player.name}</span><br/>
                         <span>Press next to check if you are in or off topic.</span><br/>
                         <span>Don't let anyone else see the screen.</span>
                     </div>

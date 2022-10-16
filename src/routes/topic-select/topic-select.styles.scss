@@ -6,6 +6,11 @@
     justify-content: flex-start;
     align-items: center;
 
+    h3 {
+        font-family: 'Pacifico', cursive;
+        color: white;
+    }
+
     @media screen and (min-width: 800px) {
         width: 60%;
     }
@@ -23,7 +28,8 @@
         @media screen and (min-width: 800px) {
             width: 80%;
             height: 80%;
-            row-gap: 10px;
+            column-gap: 0px;
+
         }
     }
 }

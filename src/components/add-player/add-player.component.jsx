@@ -2,6 +2,8 @@ import './add-player.styles.scss';
 
 import AddPlayerIcon from '../../assets/AddPlayer.png';
 import Button from '../button/button.component';
+import { BUTTON_TYPES_CLASSES } from '../button/button.component';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 import { useContext, useState } from 'react';
 import { PlayersContext } from '../../context/players.context';
@@ -48,7 +50,9 @@ const AddPlayerWindow = () => {
             <span>You can add more players or start the game</span>
             <form>
                 <div className='input-container'>
-                    <img src={AddPlayerIcon} alt='add player' onClick={addPlayerHandler}/>
+                    <div>
+                        <Button buttonType={BUTTON_TYPES_CLASSES.icon} onClick={addPlayerHandler}><AddCircleIcon/></Button>
+                    </div>
                     <input 
                         label="Enter Player Name"
                         type="text"
@@ -59,7 +63,7 @@ const AddPlayerWindow = () => {
                         value={playerName}
                     />
                 </div>
-                <div className="add-player-button-container">
+                <div className="go-back-button-container">
                     <Button onClick={goBack}>BACK</Button>
                 </div>
             </form>

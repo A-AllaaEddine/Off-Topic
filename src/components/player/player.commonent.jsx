@@ -16,7 +16,7 @@ const Player = ({ player, vote }) => {
         removePlayer(player);
     }
     return (
-        <div className='player-info-container' >
+        <div className={`${vote ? 'vote' : ''} player-info-container`} >
             {
                 !vote ? (
                     <>

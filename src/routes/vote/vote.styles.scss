@@ -1,15 +1,17 @@
 .vote-container {
     width: 100%;
-    height: 100%;
+    height: 70%;
 
     color: white;
 
     @media screen and (min-width: 800px) {
-        width: 60%;
+        width: 800px;
+        height: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        
     }
 
     .players-vote-container {
@@ -21,8 +23,8 @@
         margin-top: 30px;
 
         @media screen and (min-width: 800px) {
-            width: 80%;
-            margin-top: 0px;
+            width: 100%;
+            margin-top: 10px;
         }
 
         .voting-players-container{
@@ -37,6 +39,12 @@
 
             color: black;
             
+
+            @media screen and (min-width: 800px) {
+                width: 800px;
+                padding: 0px;
+                align-items: center;
+            }
         }
     }
 
@@ -48,7 +56,9 @@
         align-items: center;
 
         @media screen and (min-width: 800px) {
-            width: 80%;
+            width: 100%;
+            height: 100%;
+            margin-top: 30px;
         }
 
         .voting-topics-container {
@@ -61,6 +71,10 @@
             align-items: center;
             color: black;
             
+            @media screen and (min-width: 800px) {
+                width: 100%;
+                height: 450px;
+            }
 
             .voting-topics {
                 width: 80%;
@@ -73,7 +87,9 @@
                 box-shadow: 3px 3px #3b3b3b;
                 text-align: center;
 
-                
+                @media screen and (min-width: 800px) {
+                    width: 70%;
+                }
             }
         }
     }

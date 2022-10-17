@@ -1,6 +1,6 @@
 .imposter-info-container {
     width: 100%;
-    height: 100%;
+    height: 70%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -10,6 +10,8 @@
     color: white;
 
     @media screen and (min-width: 800px) {
+        width: 800px;
+        height: 100%;
         justify-content: center;
         margin-top: 0px;
     }

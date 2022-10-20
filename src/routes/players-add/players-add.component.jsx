@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { PlayersContext } from '../../context/players.context';
 
-import AddPlayersIcon from '../../assets/AddPlayers.png';
 
 import Player from '../../components/player/player.commonent';
 import Button from '../../components/button/button.component';

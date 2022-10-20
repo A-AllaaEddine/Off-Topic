@@ -1,6 +1,5 @@
 import './add-player.styles.scss';
 
-import AddPlayerIcon from '../../assets/AddPlayer.png';
 import Button from '../button/button.component';
 import { BUTTON_TYPES_CLASSES } from '../button/button.component';
 import AddCircleIcon from '@mui/icons-material/AddCircle';

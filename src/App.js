@@ -37,7 +37,7 @@ const  App = () => {
         </Route>
       </Routes>     
       {/* <GoogleAds />  */}
-      <AdSense.Google client='ca-pub-6491978736747955' slot='8205009337' style={{ display: 'block' }} />
+      {/* <AdSense.Google client='ca-pub-6491978736747955' slot='8205009337' style={{ display: 'block' }} /> */}
     </div>
   )
 }

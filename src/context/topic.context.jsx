@@ -1,6 +1,8 @@
 import { createContext, useState } from "react";
 
-import { TopicsTypes } from "../utils/topic.data";
+
+
+import { TopicText } from "../utils/language";
 
 
 const getRandomTopic = ( topicType ) => {
@@ -15,11 +17,12 @@ export const TopicsContext = createContext({
     setTopicType: () => {},
     setTopicTypeInContext: () => {},
     topic: null,
-    setTopic: () => {}
+    setTopic: () => {},
+    setTopicsLanguage: () => {}
 })
 
 export const TopicsProvider = ({ children }) => {
-    const [topicsTypes, setTopicsTypes] = useState(TopicsTypes);
+    const [topicsTypes, setTopicsTypes] = useState(TopicText(0));
     const [topicType, setTopicType] = useState(null);
     const [topic, setTopic] = useState(null);
 
@@ -34,8 +37,19 @@ export const TopicsProvider = ({ children }) => {
         setTopic(selectedTopic);
     }
 
+    const setTopicsLanguage = (lang) => {
+        setTopicsTypes(TopicText(lang.id))
+    }
 
-    const value = { topicsTypes, topicType, setTopicTypeInContext, topic, selectRandomTopic };
+
+    const value = { 
+        topicsTypes, 
+        topicType, 
+        setTopicTypeInContext, 
+        topic, 
+        selectRandomTopic,
+        setTopicsLanguage
+    };
 
     return (
         <TopicsContext.Provider value={value}>

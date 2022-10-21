@@ -6,6 +6,7 @@ import Button from '../../components/button/button.component';
 import { useNavigate } from 'react-router-dom';
 import { useContext, useState, useEffect } from 'react';
 import { PlayersContext } from '../../context/players.context';
+import { LanguageContext } from '../../context/language.context';
 
 
 let i = 0;
@@ -18,6 +19,23 @@ const Questions = () => {
     const navigate = useNavigate();
     const player1 = twoRandomPlayers[0];
     const player2 = twoRandomPlayers[1];
+
+    const { displayText } = useContext(LanguageContext);
+
+    const { 
+        nextButton,
+        voteButton,
+        questionTime,
+        everyPlayerWillAsk,
+        pressNextForFirstQuestion,
+        player1AsksPlayer2,
+        beCarefull,
+        pressNext,
+        ifYouHaveMoreQuestions,
+        pressVote
+    } = displayText;
+
+    const { playersAsk } = player1AsksPlayer2(player1 && player1.name, player2 && player2.name);
 
     useEffect(() => {
         return () => i = 0;
@@ -50,35 +68,35 @@ const Questions = () => {
                 (
                     questionStart ?
                     <div className='question-time-container'>
-                        <h2>Questions Time</h2>
+                        <h2>{questionTime}</h2>
                         <div className='question-time-text'>
-                            <span>Every player will get to ask another player a question about the topic.</span><br/>
-                            <span>Pres NEXT for first question</span>
+                            <span>{everyPlayerWillAsk}</span><br/>
+                            <span>{pressNextForFirstQuestion}</span>
                         </div>
                         <div className='question-time-button'>
-                            <Button onClick={startQuestionsHandler}>NEXT</Button>
+                            <Button onClick={startQuestionsHandler}>{nextButton}</Button>
                         </div>
                     </div>
                     :
                     (<div className='player-question-container'>
-                        <h2>Questions Time</h2>
+                        <h2>{questionTime}</h2>
                         <div className='player-question-text'>
-                            <span><b>{player1.name}</b>,  you can ask <b>{player2.name}</b>   a question about the topic.</span><br/>
-                            <span><b>CAREFULLY</b>  pick your question, so the imposter won't find what the topic is.</span><br/>
-                            <span>Press next</span><br/>
+                            <span>{playersAsk}</span><br/>
+                            <span>{beCarefull}</span><br/>
+                            <span>{pressNext}</span><br/>
                         </div>
                         <div className='player-question-button'>
-                            <Button onClick={nextQuestionHnadler}>NEXT</Button>
+                            <Button onClick={nextQuestionHnadler}>{nextButton}</Button>
                         </div>
                     </div>)
                 ) : (
                     <div className='more-questions-container'>
                         <div className='more-questions-text'>
-                            <span>If you have more questions, it's the time to ask them.</span><br/>
-                            <span>Otherwise press <b> VOTE </b> to vote for the imposter.</span>
+                            <span>{ifYouHaveMoreQuestions}</span><br/>
+                            <span>{pressVote}</span>
                         </div>
                         <div className='vote-button'>
-                            <Button onClick={goToVote}>VOTE</Button>
+                            <Button onClick={goToVote}>{voteButton}</Button>
                         </div>
                     </div>
                 )

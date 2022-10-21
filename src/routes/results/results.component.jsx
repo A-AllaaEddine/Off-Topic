@@ -2,6 +2,7 @@ import './results.styles.scss';
 
 import { useContext } from 'react';
 import { PlayersContext } from '../../context/players.context';
+import { LanguageContext } from '../../context/language.context';
 import { useNavigate } from 'react-router-dom';
 
 import Button from '../../components/button/button.component';
@@ -10,6 +11,10 @@ const Results = () => {
     const { imposter, selectIsImposterVoting, isImposterVoting, playersArray } = useContext(PlayersContext);
     const navigate = useNavigate();
 
+    const { displayText } = useContext(LanguageContext);
+
+    const { nextButton, newGameButton, offTopicPlayerIs, results } = displayText;
+
 
     const goToTopicVote = () => {
         selectIsImposterVoting(true);
@@ -17,7 +22,7 @@ const Results = () => {
     }
 
     const goToSelectPlayers = () => {
-        navigate('/');
+        navigate('/navigate/addPlayer');
     }
 
     return (
@@ -25,16 +30,16 @@ const Results = () => {
             {
                 isImposterVoting ? (
                     <div className='imposter-results-container'>
-                        <span>The off-topic player is ...</span>
+                        <span>{offTopicPlayerIs}</span>
                         <h1>{imposter.name}</h1>
                         <div className='results-button'>
-                            <Button onClick={goToTopicVote} >NEXT</Button>
+                            <Button onClick={goToTopicVote} >{nextButton}</Button>
                         </div>
 
                     </div>
                 ) : (
                     <div className='players-results-container'>
-                        <h1>RESULTS</h1>
+                        <h1>{results}</h1>
                         <div className='players-resutls'>
                             {
                                 playersArray.map((player) => {
@@ -48,7 +53,7 @@ const Results = () => {
                             }
                         </div>
                         <div className='results-button'>
-                            <Button onClick={goToSelectPlayers} >NEW GAME</Button>
+                            <Button onClick={goToSelectPlayers} >{newGameButton}</Button>
                         </div>
                     </div>
                 )

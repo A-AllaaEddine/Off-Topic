@@ -5,7 +5,9 @@ import PlayerInfo from '../../components/player-info/player-info.component';
 
 import { useNavigate } from 'react-router-dom';
 import { useContext, useState, useEffect } from 'react';
+import { LanguageContext } from '../../context/language.context';
 import { PlayersContext } from '../../context/players.context';
+
 
 
 let i = 0;
@@ -15,6 +17,11 @@ const Play = () => {
     const [ player, setPlayer ] = useState(playersArray[0]);
     const [ nextPlayer, setNextPlayer ] = useState(false);
     const navigate = useNavigate();
+
+    // Setting Language
+    const { displayText } = useContext(LanguageContext);
+    const { giveThePhoneToPlayer, pressNextToCheck, dontLetAnyoneSee, nextButton } = displayText;
+    const { giveThePhoneTo } = giveThePhoneToPlayer(player && player.name);
 
     useEffect(() => {
         return () => i = 0;
@@ -43,12 +50,12 @@ const Play = () => {
                 (<div className='player-showcase-container'>
                     <h2>{player && player.name}</h2>
                     <div className='player-showcase-text'>
-                        <span>Give the phone to {player && player.name}</span><br/>
-                        <span>Press next to check if you are in or off topic.</span><br/>
-                        <span>Don't let anyone else see the screen.</span>
+                        <span>{giveThePhoneTo}</span><br/>
+                        <span>{pressNextToCheck}</span><br/>
+                        <span>{dontLetAnyoneSee}</span>
                     </div>
                     <div className='player-showcase-button'>
-                        <Button onClick={goToImposterHandler}>NEXT</Button>
+                        <Button onClick={goToImposterHandler}>{nextButton}</Button>
                     </div>
                 </div>)
             }

@@ -18,7 +18,7 @@ const  App = () => {
   const location = useLocation();
 
     useEffect(() => {
-        if ((location.pathname == "/navigate/addPlayer") || (location.pathname == "/navigate/topic") || (location.pathname == "/navigate/play") || (location.pathname == "/navigate/questions") || (location.pathname == "/navigate/vote") || (location.pathname == "/navigate/resutls")) {
+        if ((location.pathname === "/navigate/addPlayer") || (location.pathname === "/navigate/topic") || (location.pathname === "/navigate/play") || (location.pathname === "/navigate/questions") || (location.pathname === "/navigate/vote") || (location.pathname === "/navigate/resutls")) {
             navigate("/");
         }
     }, []);

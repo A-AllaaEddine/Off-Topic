@@ -4,6 +4,10 @@ import { TopicsContext } from "./topic.context";
 
 
 const addPlayerToArray = (playersArray, playerToAdd) => {
+    while(playersArray.find((player) => player.id === playerToAdd.id)) {
+        playerToAdd.id =  playerToAdd.id + 1;
+    }
+
     return [...playersArray, {...playerToAdd, isImposter: false}];
 }
 
@@ -18,7 +22,7 @@ const setIsImposter = (playersArray) => {
     {...player, isImposter: true
 
     } : 
-    {... player, isImposter: false}
+    {...player, isImposter: false}
     );
 }
 

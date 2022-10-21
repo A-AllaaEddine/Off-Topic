@@ -6,6 +6,7 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 import { useContext, useState } from 'react';
 import { PlayersContext } from '../../context/players.context';
+import { LanguageContext } from '../../context/language.context';
 
 
 const defaultFormFields = {
@@ -17,7 +18,9 @@ const AddPlayerWindow = () => {
     const [ formFields, setFormFields ] = useState(defaultFormFields);
     const { playerName } = formFields;
     const { addPlayer, isAddPlayerWindowOpen, setIsAddPlayerWindowOpen } = useContext(PlayersContext);
+    const { displayText } = useContext(LanguageContext);
 
+    const { backButton, youCanAddMorePlayers } = displayText;
     
 
     const handleChange = (event) => {
@@ -30,7 +33,7 @@ const AddPlayerWindow = () => {
         if (!playerName) return;
 
         const playerObj = {
-            id: `${playerName}`,
+            id: 0,
             name: `${playerName}`,
             points: 0
         }
@@ -46,7 +49,7 @@ const AddPlayerWindow = () => {
 
     return (
         <div className='add-player-container'>
-            <span>You can add more players or start the game</span>
+            <span>{youCanAddMorePlayers}</span>
             <form>
                 <div className='input-container'>
                     <div>
@@ -63,7 +66,7 @@ const AddPlayerWindow = () => {
                     />
                 </div>
                 <div className="go-back-button-container">
-                    <Button onClick={goBack}>BACK</Button>
+                    <Button onClick={goBack}>{backButton}</Button>
                 </div>
             </form>
         </div>

@@ -8,17 +8,20 @@ import { BrowserRouter } from 'react-router-dom';
 
 import { TopicsProvider } from './context/topic.context';
 import { PlayersPorvider } from './context/players.context';
+import { LanguageProvider } from './context/language.context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <TopicsProvider>
-      <PlayersPorvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </PlayersPorvider>
-    </TopicsProvider>
+    <LanguageProvider>
+      <TopicsProvider>
+        <PlayersPorvider>
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
+        </PlayersPorvider>
+      </TopicsProvider>
+    </LanguageProvider>
   </React.StrictMode>
 );
 

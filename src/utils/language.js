@@ -347,18 +347,14 @@ export const TopicText = ( id ) => {
                         },
                         {
                             id: 4,
-                            name: 'Wolf'
-                        },
-                        {
-                            id: 5,
                             name: 'ذئب'
                         },
                         {
-                            id: 6,
+                            id: 5,
                             name: 'فأر'
                         },
                         {
-                            id: 7,
+                            id: 6,
                             name: 'كلب'
                         }
                     ]

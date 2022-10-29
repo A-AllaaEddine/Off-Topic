@@ -1,17 +1,18 @@
-import Home from './routes/home/home.component';
-import Navigation from './routes/navigation/navigation.component';
-import AddPlayers from './routes/players-add/players-add.component';
-import TopicSelect from './routes/topic-select/topic-select.component';
-import Play from './routes/play/play.component';
-import Questions from './routes/questions/questions.component';
-import Vote from './routes/vote/vote.component';
-import Results from './routes/results/results.component';
-import AdSense from 'react-adsense';
-
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
-
+import { useEffect, lazy, Suspense } from 'react';
 import './App.scss';
+
+
+const Home  = lazy(() => import('./routes/home/home.component')) ;
+const Navigation  = lazy(() => import('./routes/navigation/navigation.component')) ;
+const AddPlayers  = lazy(() => import('./routes/players-add/players-add.component')) ;
+const TopicSelect  = lazy(() => import('./routes/topic-select/topic-select.component')) ;
+const Play  = lazy(() => import('./routes/play/play.component')) ;
+const Questions  = lazy(() => import('./routes/questions/questions.component')) ;
+const Vote  = lazy(() => import('./routes/vote/vote.component')) ;
+const Results  = lazy(() => import('./routes/results/results.component')) ;
+
+
 
 const  App = () => {
   const navigate = useNavigate();
@@ -24,21 +25,21 @@ const  App = () => {
     }, []);
 
   return (
-    <div className='app-container'>
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path="/navigate" element={<Navigation />}>
-          <Route path='addplayer' element={<AddPlayers />} />
-          <Route path='topic' element={<TopicSelect />} />
-          <Route path='play' element={<Play />} />
-          <Route path='questions' element={<Questions />} />
-          <Route path='vote' element={<Vote />} />
-          <Route path='resutls' element={<Results />} />
-        </Route>
-      </Routes>     
-      {/* <GoogleAds />  */}
-      {/* <AdSense.Google client='ca-pub-6491978736747955' slot='8205009337' style={{ display: 'block' }} /> */}
-    </div>
+    <Suspense>
+      <div className='app-container'>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path="/navigate" element={<Navigation />}>
+            <Route path='addplayer' element={<AddPlayers />} />
+            <Route path='topic' element={<TopicSelect />} />
+            <Route path='play' element={<Play />} />
+            <Route path='questions' element={<Questions />} />
+            <Route path='vote' element={<Vote />} />
+            <Route path='resutls' element={<Results />} />
+          </Route>
+        </Routes>
+        </div>
+    </Suspense>
   )
 }
 

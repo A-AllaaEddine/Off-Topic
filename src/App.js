@@ -1,6 +1,7 @@
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { useEffect, lazy, Suspense } from 'react';
 import './App.scss';
+import ReactGA from 'react-ga';
 
 
 const Home  = lazy(() => import('./routes/home/home.component')) ;
@@ -18,7 +19,15 @@ const  App = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const setGA = () => {
+    ReactGA.initialize('G-1WMTYK07M8', {
+      debug: true
+    });
+    ReactGA.pageview('Init page view');
+  };
+
     useEffect(() => {
+        setGA();
         if ((location.pathname === "/navigate/addPlayer") || (location.pathname === "/navigate/topic") || (location.pathname === "/navigate/play") || (location.pathname === "/navigate/questions") || (location.pathname === "/navigate/vote") || (location.pathname === "/navigate/resutls")) {
             navigate("/");
         }

@@ -4,22 +4,24 @@ import { Languages, DisplayText } from "../utils/language";
 
 
 export const LanguageContext = createContext({
-    isDropDownOpen : false,
-    setIsDropDownOpen: () => {},
+    isLanguageDropDownOpen : false,
+    setIsLanguageDropDownOpen: () => {},
     toggleIsDropDownOpen: () => {},
     languages: Languages,
-    selectedLanguage: Languages[0],
+    selectedLanguage: Languages["en"],
     setSelectedLanguage: () => {},
-    displayText: DisplayText(0),
+    displayText: DisplayText("en"),
     setDisplayText: () => {}
 })
 
 
 export const LanguageProvider = ({ children }) => {
-    const [ isDropDownOpen, setIsDropDownOpen] = useState(false);
+    const [ isLanguageDropDownOpen, setIsLanguageDropDownOpen] = useState(false);
+    const [ isHelpDropDownOpen, setIsHelpDropDownOpen] = useState(false);
+    const [ isFeedbackOpen, setIsFeedbackOpen] = useState(false);
     const [ languages, setLanguages ] = useState(Languages);
-    const [ selectedLanguage, setSelectedLanguage ] = useState(Languages[0]);
-    const [ displayText, setDisplayText ] = useState(DisplayText(0));
+    const [ selectedLanguage, setSelectedLanguage ] = useState(Languages["en"]);
+    const [ displayText, setDisplayText ] = useState(DisplayText("en"));
     
 
 
@@ -30,11 +32,15 @@ export const LanguageProvider = ({ children }) => {
     
 
     const value = {
-        isDropDownOpen,
-        setIsDropDownOpen,
+        isLanguageDropDownOpen,
+        setIsLanguageDropDownOpen,
+        isHelpDropDownOpen,
+        setIsHelpDropDownOpen,
+        isFeedbackOpen,
+        setIsFeedbackOpen,
         languages,
         setLanguageText,
-        displayText
+        displayText,
     }
 
 

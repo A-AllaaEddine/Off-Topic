@@ -20,6 +20,7 @@ clientsClaim();
 // This variable must be present somewhere in your service worker file,
 // even if you decide not to use precaching. See https://cra.link/PWA
 precacheAndRoute(self.__WB_MANIFEST);
+// const ignored = self.__WB_MANIFEST;
 
 // Set up App Shell-style routing, so that all navigation requests
 // are fulfilled with your index.html shell. Learn more at
@@ -60,6 +61,18 @@ registerRoute(
     ],
   })
 );
+registerRoute(
+  // Add in any other file extensions or routing criteria as needed.
+  ({ url }) => url.origin === self.location.origin && url.pathname.endsWith('.ico'), // Customize this strategy as needed, e.g., by changing to CacheFirst.
+  new StaleWhileRevalidate({
+    cacheName: 'images',
+    plugins: [
+      // Ensure that once this runtime cache reaches a maximum size the
+      // least-recently used images are removed.
+      new ExpirationPlugin({ maxEntries: 50 }),
+    ],
+  })
+);
 
 // This allows the web app to trigger skipWaiting via
 // registration.waiting.postMessage({type: 'SKIP_WAITING'})
@@ -70,3 +83,45 @@ self.addEventListener('message', (event) => {
 });
 
 // Any other custom service worker logic can go here.
+
+// const cacheName = 'cache_1';
+
+// self.addEventListener("install", (event) => {
+//   event.waitUntil(
+//     caches.open(cacheName).then((cache) => {
+//       cache.addAll([
+//         '/',
+//         '/navigate/addPlayer',
+//         '/navigate/topic',
+//         '/index.html',
+//         '/static/js/main.5bbb3883.js',
+//         '/static/css/main.28804f1f.css',
+//         '/static/media/off-topic-2.e03243b3bafab0837e90.PNG',
+//         '/off-topic-192x192.png',
+//         '/favicon.ico',
+//         'https://fonts.googleapis.com/css2?family=Pacifico&display=swap',
+//         'https://fonts.gstatic.com/s/pacifico/v22/FwZY7-Qmy14u9lezJ-6H6Mk.woff2',
+//         'https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png',
+//         'https://i.ibb.co/FVRQLKr/Animals.png',
+//         'https://i.ibb.co/RbF6BrW/Clothes.png',
+//         'https://i.ibb.co/p13nWmg/Fruits.png',
+//         'https://i.ibb.co/k49b0Zd/Vegetables.png',
+//       ]);
+
+//     })
+//   )
+// })
+
+// self.addEventListener("fetch", (event) => {
+//   if(!navigator.onLine) {
+//     event.respondWith(
+//       caches.match(event.request).then((resp) => {
+//         if(resp) {
+//           return resp;
+//         }
+//         let requestUrl = event.request.clone();
+//         fetch(requestUrl)
+//       })
+//     )
+//   }
+// })

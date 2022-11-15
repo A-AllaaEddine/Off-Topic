@@ -1,10 +1,11 @@
 .player-info-container {
-    width: 100vw;
+    width: 100%;
     height: 60px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
     margin-top: 30px;
+    padding-inline: 15px;
 
     @media screen and (min-width: 800px) {
         width: 100vh;
@@ -12,7 +13,7 @@
     }
 
     .remove-player-img {
-        width: 30%;
+        width: 25%;
         height: 100%;
         display: flex;
         justify-content: center;
@@ -30,7 +31,7 @@
     .player-info {
         width: 100%;
         height: 100%;
-        margin-right: 100px;
+        // margin-right: 100px;
         display: flex;
         justify-content: space-around;
         border: 1px solid black;
@@ -38,11 +39,15 @@
         color: blacks;
         border-radius: 15px;
         box-shadow: 3px 3px white;
+        cursor: pointer;
+
+        
 
         @media screen and (min-width: 800px) {
             width: 50%;
             justify-content: center;
             margin-left: 20px;
+            
         }
 
         &.vote {

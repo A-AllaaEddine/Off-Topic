@@ -1,6 +1,6 @@
 .select-topic-container {
     width: 100%;
-    height: 85%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -13,7 +13,7 @@
 
     @media screen and (min-width: 800px) {
         width: 800px;
-        height: 85vh;
+        height: 91vh;
 
     }
 
@@ -26,8 +26,30 @@
         column-gap: 30px;
         row-gap: 0px;
         padding: 10px;
-        border: 2px solid #3b3b3b;
+        // border: 2px solid #3b3b3b;
         border-radius: 10px;
+
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        &::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 6px #201F32;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: #3D3F95;
+            outline: 1px solid black;
+            border-radius: 10px;
+
+            &:hover {
+                background-color: #625FA5;
+            }
+        }
+
+        &::-webkit-scrollbar-button {
+            width: 10px;
+        }
 
         @media screen and (min-width: 800px) {
             width: 95%;

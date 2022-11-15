@@ -1,10 +1,10 @@
 export const Languages = [
      {
-        id: 0,
+        id: "en",
         name: "English"
     },
     {
-        id: 1,
+        id: "ar",
         name: "العربية"
     }
 ]
@@ -14,7 +14,7 @@ export const Languages = [
 
 export const DisplayText = ( id ) => {
     switch (id) {
-        case 0:
+        case "en":
             return {
                 id: 0,
                 name: 'English',
@@ -22,6 +22,7 @@ export const DisplayText = ( id ) => {
                 nextButton: 'NEXT',
                 backButton: 'BACK',
                 voteButton: 'VOTE',
+                sendButton: 'SEND',
                 newGameButton: 'NEW GAME',
                 add4players: 'Add 4 Players at least then press Next',
                 youCanAddMorePlayers: 'You can add more players or start the game',
@@ -69,8 +70,11 @@ export const DisplayText = ( id ) => {
                     }
                 },
                 maxPlayersReached: 'You have reached the maximum allowed players',
+                FeedbackAndSuggestions: 'Feedback & Suggestions',
+                Feedback: 'Feedback',
+                YourName: 'Your name:'
             };
-        case 1:
+        case "ar":
             return {
                 id: 1,
                 name: 'العربية',
@@ -78,6 +82,7 @@ export const DisplayText = ( id ) => {
                 nextButton: 'التالي',
                 backButton: 'عودة',
                 voteButton: 'تصويت',
+                sendButton: 'إرسال',
                 newGameButton: 'لعبة جديدة',
                 add4players: 'أضف 4 لاعبين على الأقل ثم اضغط على التالي',
                 youCanAddMorePlayers: 'يمكنك إضافة المزيد من اللاعبين أو بدء اللعبة',
@@ -125,392 +130,10 @@ export const DisplayText = ( id ) => {
                     }
                 },
                 maxPlayersReached: 'لقد وصلت إلى الحد الأقصى المسموح به من اللاعبين',
+                FeedbackAndSuggestions: 'ردود الفعل والاقتراحات',
+                Feedback: 'الاقتراحات',
+                YourName: ':الاسم'
             }
-        default:
-            return {}
-    }
-}
-
-export const TopicText = ( id ) => {
-    switch (id) {
-        case 0:
-            return [
-                {
-                    id: 0,
-                    name: 'animals',
-                    imageUrl: 'https://i.ibb.co/FVRQLKr/Animals.png',
-                    topics: [
-                        {
-                            id: 1,
-                            name: 'Lion'
-                        },
-                        {
-                            id: 2,
-                            name: 'Bear'
-                        },
-                        {
-                            id: 3,
-                            name: 'Bird'
-                        },
-                        {
-                            id: 4,
-                            name: 'Wolf'
-                        },
-                        {
-                            id: 5,
-                            name: 'Cat'
-                        },
-                        {
-                            id: 6,
-                            name: 'Mouse'
-                        },
-                        {
-                            id: 7,
-                            name: 'Dog'
-                        }
-                    ]
-            
-                },{
-                    id: 1,
-                    name: 'clothes',
-                    imageUrl: 'https://i.ibb.co/RbF6BrW/Clothes.png',
-                    topics: [
-                        {
-                            id: 1,
-                            name: 'Jeans'
-                        },
-                        {
-                            id: 2,
-                            name: 'Socks'
-                        },
-                        {
-                            id: 3,
-                            name: 'Shorts'
-                        },
-                        {
-                            id: 4,
-                            name: 'Jacket'
-                        },
-                        {
-                            id: 5,
-                            name: 'Ring'
-                        },
-                        {
-                            id: 6,
-                            name: 'Heels'
-                        },
-                        {
-                            id: 7,
-                            name: 'Skirt'
-                        },
-                        {
-                            id: 9,
-                            name: 'Watch'
-                        },
-                        {
-                            id: 10,
-                            name: 'Hat'
-                        },
-                        {
-                            id: 11,
-                            name: 'Glasses'
-                        }
-                    ]
-                },{
-                    id: 2,
-                    name: 'fruits',
-                    imageUrl: 'https://i.ibb.co/p13nWmg/Fruits.png',
-                    topics: [
-                        {
-                            id: 1,
-                            name: 'Apple'
-                        },
-                        {
-                            id: 2,
-                            name: 'Banana'
-                        },
-                        {
-                            id: 3,
-                            name: 'Orange'
-                        },
-                        {
-                            id: 4,
-                            name: 'Lemon'
-                        },
-                        {
-                            id: 5,
-                            name: 'Watermelon'
-                        },
-                        {
-                            id: 6,
-                            name: 'Mango'
-                        },
-                        {
-                            id: 7,
-                            name: 'Grapes'
-                        },
-                        {
-                            id: 8,
-                            name: 'Strawberries'
-                        },
-                        {
-                            id: 9,
-                            name: 'Pineapple'
-                        },
-                        {
-                            id: 10,
-                            name: 'Kiwi'
-                        },
-                        {
-                            id: 11,
-                            name: 'Pear'
-                        },
-                        {
-                            id: 12,
-                            name: 'Avocado'
-                        }
-                    ]
-                },{
-                    id: 3,
-                    name: 'vegetables',
-                    imageUrl: 'https://i.ibb.co/k49b0Zd/Vegetables.png',
-                    topics: [
-                        {
-                            id: 1,
-                            name: 'Tomato'
-                        },
-                        {
-                            id: 2,
-                            name: 'Potato'
-                        },
-                        {
-                            id: 3,
-                            name: 'Cucumber'
-                        },
-                        {
-                            id: 4,
-                            name: 'Onion'
-                        },
-                        {
-                            id: 5,
-                            name: 'Carrot'
-                        },
-                        {
-                            id: 6,
-                            name: 'Corn'
-                        },
-                        {
-                            id: 7,
-                            name: 'Eggplant'
-                        },
-                        {
-                            id: 8,
-                            name: 'Pepper'
-                        },
-                        {
-                            id: 9,
-                            name: 'Radish'
-                        },
-                        {
-                            id: 10,
-                            name: 'Spinach'
-                        },
-                        {
-                            id: 11,
-                            name: 'Peas'
-                        },
-                        {
-                            id: 12,
-                            name: 'Mushroom'
-                        }
-                    ]
-                },
-            ]
-        case 1:
-            return [
-                {
-                    id: 0,
-                    name: 'الحيوانات',
-                    imageUrl: 'https://i.ibb.co/FVRQLKr/Animals.png',
-                    topics: [
-                        {
-                            id: 1,
-                            name: 'أسد'
-                        },
-                        {
-                            id: 2,
-                            name: 'دب'
-                        },
-                        {
-                            id: 3,
-                            name: 'عصفور'
-                        },
-                        {
-                            id: 4,
-                            name: 'ذئب'
-                        },
-                        {
-                            id: 5,
-                            name: 'فأر'
-                        },
-                        {
-                            id: 6,
-                            name: 'كلب'
-                        }
-                    ]
-            
-                },{
-                    id: 1,
-                    name: 'ملابس',
-                    imageUrl: 'https://i.ibb.co/RbF6BrW/Clothes.png',
-                    topics: [
-                        {
-                            id: 1,
-                            name: 'جينز'
-                        },
-                        {
-                            id: 2,
-                            name: 'جوارب'
-                        },
-                        {
-                            id: 3,
-                            name: 'السراويل القصيرة'
-                        },
-                        {
-                            id: 4,
-                            name: 'السترة'
-                        },
-                        {
-                            id: 5,
-                            name: 'خاتم'
-                        },
-                        {
-                            id: 6,
-                            name: 'كعب'
-                        },
-                        {
-                            id: 7,
-                            name: 'تنورة'
-                        },
-                        {
-                            id: 9,
-                            name: 'ساعة'
-                        },
-                        {
-                            id: 10,
-                            name: 'قبعة'
-                        },
-                        {
-                            id: 11,
-                            name: 'نظارات'
-                        }
-                    ]
-                },{
-                    id: 2,
-                    name: 'فواكه',
-                    imageUrl: 'https://i.ibb.co/p13nWmg/Fruits.png',
-                    topics: [
-                        {
-                            id: 1,
-                            name: 'تفاحة'
-                        },
-                        {
-                            id: 2,
-                            name: 'موز'
-                        },
-                        {
-                            id: 3,
-                            name: 'برتقال'
-                        },
-                        {
-                            id: 4,
-                            name: 'ليمون'
-                        },
-                        {
-                            id: 5,
-                            name: 'بطيخ'
-                        },
-                        {
-                            id: 6,
-                            name: 'مانجو'
-                        },
-                        {
-                            id: 7,
-                            name: 'العنب'
-                        },
-                        {
-                            id: 8,
-                            name: 'فراولة'
-                        },
-                        {
-                            id: 9,
-                            name: 'أناناس'
-                        },
-                        {
-                            id: 10,
-                            name: 'كيوي'
-                        },
-                        {
-                            id: 11,
-                            name: 'إجاص'
-                        },
-                        {
-                            id: 12,
-                            name: 'أفوكادو'
-                        }
-                    ]
-                },{
-                    id: 3,
-                    name: 'خضروات',
-                    imageUrl: 'https://i.ibb.co/k49b0Zd/Vegetables.png',
-                    topics: [
-                        {
-                            id: 1,
-                            name: 'طماطم'
-                        },
-                        {
-                            id: 2,
-                            name: 'بطاطا'
-                        },
-                        {
-                            id: 3,
-                            name: 'خيار'
-                        },
-                        {
-                            id: 4,
-                            name: 'بصل'
-                        },
-                        {
-                            id: 5,
-                            name: 'جزر'
-                        },
-                        {
-                            id: 6,
-                            name: 'باذنجان'
-                        },
-                        {
-                            id: 7,
-                            name: 'فلفل'
-                        },
-                        {
-                            id: 8,
-                            name: 'الفجل'
-                        },
-                        {
-                            id: 9,
-                            name: 'سبانخ'
-                        },
-                        {
-                            id: 10,
-                            name: 'بازيلاء'
-                        },
-                        {
-                            id: 11,
-                            name: 'فطر'
-                        }
-                    ]
-                },
-            ]
         default:
             return {}
     }

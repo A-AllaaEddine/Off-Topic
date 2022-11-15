@@ -1,6 +1,7 @@
 .topic-info-container {
 
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     height: 200px;
@@ -25,7 +26,7 @@
 
         @media screen and (min-width: 800px) {
             width: 100%;
-            height: 100%;
+            height: 80%;
         }
         img {
             width: 100%;
@@ -34,8 +35,8 @@
     
             @media screen and (min-width: 800px) {
                 width: 100%;
-                object-fit: cover;
                 height: 100%;
+                object-fit: cover;
             }
     
         }

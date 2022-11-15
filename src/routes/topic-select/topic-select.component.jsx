@@ -11,6 +11,7 @@ import { LanguageContext } from '../../context/language.context';
 const TopicSelect = () => {
     const { topicsTypes } = useContext(TopicsContext);
     const { displayText } = useContext(LanguageContext);
+    console.log(topicsTypes);
 
     const { selectTopic } = displayText;
 
@@ -18,7 +19,7 @@ const TopicSelect = () => {
         <div className='select-topic-container'>
             <h3>{selectTopic}</h3>
             <div className='topics-container'>
-                {topicsTypes.map((topicType) => {
+                {topicsTypes && topicsTypes.content.map((topicType) => {
                 return (
                         <Topic key={topicType.id} topicType={topicType} />
                     )

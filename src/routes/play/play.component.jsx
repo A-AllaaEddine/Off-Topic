@@ -17,6 +17,7 @@ const Play = () => {
     const [ player, setPlayer ] = useState(playersArray[0]);
     const [ nextPlayer, setNextPlayer ] = useState(false);
     const navigate = useNavigate();
+    console.log(playersArray);
 
     // Setting Language
     const { displayText } = useContext(LanguageContext);

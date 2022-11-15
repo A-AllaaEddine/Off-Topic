@@ -2,7 +2,8 @@ import { createContext, useState } from "react";
 
 
 
-import { TopicText } from "../utils/language";
+import TopicsLite from "../utils/topics-lite.json";
+// import  TopicsFull from "../utils/topics-full.json";
 
 
 const getRandomTopic = ( topicType ) => {
@@ -18,11 +19,15 @@ export const TopicsContext = createContext({
     setTopicTypeInContext: () => {},
     topic: null,
     setTopic: () => {},
-    setTopicsLanguage: () => {}
+    setTopicsLanguage: () => {},
+    setTopics: () => {},
+    topicsList: {},
+    setTopicsList: () => {}
 })
 
 export const TopicsProvider = ({ children }) => {
-    const [topicsTypes, setTopicsTypes] = useState(TopicText(0));
+    const [topicsList, setTopicsList] = useState(TopicsLite);
+    const [topicsTypes, setTopicsTypes] = useState(TopicsLite.find(topic => {return topic.id === "en"}));
     const [topicType, setTopicType] = useState(null);
     const [topic, setTopic] = useState(null);
 
@@ -37,8 +42,17 @@ export const TopicsProvider = ({ children }) => {
         setTopic(selectedTopic);
     }
 
+    const setTopics = (topics) => {
+        setTopicsList(topics)
+        setTopicsTypes(topics.find(topic => {return topic.id === "en"}))
+        // console.log(topics.find(topic => {return topic.id === "en"}));
+    }
+
     const setTopicsLanguage = (lang) => {
-        setTopicsTypes(TopicText(lang.id))
+        setTopicsTypes(topicsList.find(topic => {return topic.id === lang.id}))
+        console.log(topicsList.find(topic => {return topic.id === lang.id}))
+        
+
     }
 
 
@@ -48,7 +62,8 @@ export const TopicsProvider = ({ children }) => {
         setTopicTypeInContext, 
         topic, 
         selectRandomTopic,
-        setTopicsLanguage
+        setTopicsLanguage,
+        setTopics
     };
 
     return (

@@ -11,7 +11,7 @@ export const BaseButton = styled.button`
     font-size: 20px;
     background-image: linear-gradient( 135deg, #FDEB71 10%, #F8D800 100%);
     border-radius: 20px;
-    box-shadow: 2px 5px #616160;
+    box-shadow: 3px 3px 10px 1px #776806;
     color: nlack;
     text-transform: uppercase;
     font-family: 'Pacifico', cursive;
@@ -28,6 +28,7 @@ export const IconButton = styled(BaseButton)`
     min-width: 0px;
     width: 50px;
     padding: 0;
+    box-shadow: 3px 3px 10px 1px #776806;
 
     &:hover {
       background-color: white;

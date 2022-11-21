@@ -5,13 +5,16 @@ import { useNavigate } from 'react-router-dom';
 import { LanguageContext } from '../../context/language.context';
 
 import { submitFeedback } from '../../utils/firebase/firebase.utils';
-import { useState } from 'react';
+import { useState, useRef  } from 'react';
+
+import emailjs from '@emailjs/browser';
 
 import CloseIcon from '@mui/icons-material/Close';
 
 
 const defaultFeedbackFields = {
-    name: '',
+    user_name: '',
+    user_email: '',
     message: '',
     date: ''
 }
@@ -19,10 +22,12 @@ const defaultFeedbackFields = {
 const FeedbackForm = () => {
     const [feedback, setFeedback] = useState(defaultFeedbackFields);
     const { isFeedbackOpen, setIsFeedbackOpen, displayText } = useContext(LanguageContext);
-    const { YourName, Feedback, sendButton } = displayText;
+    const { YourName, YourEmail, Feedback, sendButton } = displayText;
     const navigate = useNavigate();
 
-    const { name, message } = feedback;
+    const { user_name, user_email, message } = feedback;
+
+    const form = useRef();
 
     const toggleFeedbackForm = () => {
         setIsFeedbackOpen(!isFeedbackOpen);
@@ -38,8 +43,29 @@ const FeedbackForm = () => {
         // console.log(feedback);
     }
 
+    const sendEmail = (event) => {
+        event.preventDefault();
+
+        try {
+            if(navigator.onLine) {
+            emailjs.sendForm('service_87yrh6s', 'template_k9ylsv4', form.current, 'WcxmqDheMlYXahi13')
+            .then((result) => {
+                setFeedback(defaultFeedbackFields); 
+                setIsFeedbackOpen(!isFeedbackOpen);
+                navigate("/success");
+            }, (error) => {
+                navigate("/failed");
+                console.log(error);
+            });
+        }} catch(error) {
+            console.log(error);
+        }
+
+    }
+
     const submitForm = async (event) => {
         event.preventDefault();
+
 
         // console.log(feedback);
         if(navigator.onLine) {
@@ -62,19 +88,23 @@ const FeedbackForm = () => {
     return (
         <div className='feedback-container' >
             <div className='feedback-background' onClick={toggleFeedbackForm}></div>
-            <form name='feedback'  className='feedback-form'>
+            <form ref={form} name='feedback'  className='feedback-form' onSubmit={sendEmail}>
                 <div className='close-icon' onClick={toggleFeedbackForm}><CloseIcon /></div>
                 <div className='content-form'>
                     <h1>{Feedback}</h1>
                     <div className='name-inputBox'>
                         <label >{YourName}</label>
-                        <input type='text' name='name' value={name} required onChange={handleChange}/>
+                        <input type='text' name='user_name' value={user_name} required onChange={handleChange}/>
+                    </div>
+                    <div className='name-inputBox'>
+                        <label >{YourEmail}</label>
+                        <input type='text' name='user_email' value={user_email} required onChange={handleChange}/>
                     </div>
                     <div className='feedback-inputBox'>
                         <label >{Feedback}:</label>
                         <textarea type='text' name='message' value={message} className='feedback-text' required onChange={handleChange}/>
                     </div>
-                    <button type='submit' onClick={submitForm}>{sendButton}</button>
+                    <button type='submit' >{sendButton}</button>
                 </div>
             </form>
         </div>

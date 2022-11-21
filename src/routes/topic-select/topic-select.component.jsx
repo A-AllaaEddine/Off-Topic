@@ -11,7 +11,7 @@ import { LanguageContext } from '../../context/language.context';
 const TopicSelect = () => {
     const { topicsTypes } = useContext(TopicsContext);
     const { displayText } = useContext(LanguageContext);
-    console.log(topicsTypes);
+    // console.log(topicsTypes);
 
     const { selectTopic } = displayText;
 

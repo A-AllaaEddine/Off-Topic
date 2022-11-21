@@ -34,8 +34,9 @@
             display: block;
             width: 100%;
             border: none;
-            border-radius: 0;
-            border-bottom: 1px solid grey;
+            outline: none;
+            box-shadow: 3px 3px 5px -1px #776806;
+            border-radius: 5px;
             margin-left: 20px;
         }
     }

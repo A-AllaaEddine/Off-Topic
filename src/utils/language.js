@@ -72,7 +72,8 @@ export const DisplayText = ( id ) => {
                 maxPlayersReached: 'You have reached the maximum allowed players',
                 FeedbackAndSuggestions: 'Feedback & Suggestions',
                 Feedback: 'Feedback',
-                YourName: 'Your name:'
+                YourName: 'Your name:',
+                YourEmail: 'Your email:'
             };
         case "ar":
             return {
@@ -132,7 +133,8 @@ export const DisplayText = ( id ) => {
                 maxPlayersReached: 'لقد وصلت إلى الحد الأقصى المسموح به من اللاعبين',
                 FeedbackAndSuggestions: 'ردود الفعل والاقتراحات',
                 Feedback: 'الاقتراحات',
-                YourName: ':الاسم'
+                YourName: ':الاسم',
+                YourEmail: ':البريد الإلكتروني'
             }
         default:
             return {}

@@ -1,5 +1,5 @@
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import './App.scss';
 import ReactGA from 'react-ga';
 import { useContext } from 'react';
@@ -34,9 +34,13 @@ const  App = () => {
   const location = useLocation();
   const { setTopics } = useContext(TopicsContext);
 
+  ReactGA.initialize('G-1WMTYK07M8');
   const setGA = () => {
-    ReactGA.initialize('G-1WMTYK07M8');
-    ReactGA.pageview('Init page view');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+
+    //fetch all topics images to save them with service worker
+    fetch("https://i.ibb.co/FVRQLKr/Animals.png");
+    fetch("https://i.ibb.co/p13nWmg/Fruits.png");
   };
 
     useEffect(() => {
@@ -65,18 +69,20 @@ const  App = () => {
 
   return (
       <div className='app-container'>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/:feedbackStatus' element={<FeedbackStatus />} />
-          <Route path="/navigate" element={<Navigation />}>
-            <Route path='addplayer' element={<AddPlayers />} />
-            <Route path='topic' element={<TopicSelect />} />
-            <Route path='play' element={<Play />} />
-            <Route path='questions' element={<Questions />} />
-            <Route path='vote' element={<Vote />} />
-            <Route path='resutls' element={<Results />} />
-          </Route>
-        </Routes>
+        <Suspense>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/:feedbackStatus' element={<FeedbackStatus />} />
+            <Route path="/navigate" element={<Navigation />}>
+              <Route path='addplayer' element={<AddPlayers />} />
+              <Route path='topic' element={<TopicSelect />} />
+              <Route path='play' element={<Play />} />
+              <Route path='questions' element={<Questions />} />
+              <Route path='vote' element={<Vote />} />
+              <Route path='resutls' element={<Results />} />
+            </Route>
+          </Routes>
+        </Suspense>
       </div>
   )
 }

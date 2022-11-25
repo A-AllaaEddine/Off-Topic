@@ -21,7 +21,10 @@
         width: 100%;
         height: 100%;
         background-color:  #F8D800;
-        box-shadow: 3px 3px #3b3b3b;
+        box-shadow: 5px 5px 15px -1px #776806;
+        border: none;
+        outline: none;
+        // box-shadow: 3px 3px #3b3b3b;
         border-radius: 20px;
 
         @media screen and (min-width: 800px) {

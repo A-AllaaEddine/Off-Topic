@@ -50,7 +50,7 @@ export const TopicsProvider = ({ children }) => {
 
     const setTopicsLanguage = (lang) => {
         setTopicsTypes(topicsList.find(topic => {return topic.id === lang.id}))
-        console.log(topicsList.find(topic => {return topic.id === lang.id}))
+        // console.log(topicsList.find(topic => {return topic.id === lang.id}))
         
 
     }

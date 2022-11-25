@@ -34,9 +34,9 @@ const  App = () => {
   const location = useLocation();
   const { setTopics } = useContext(TopicsContext);
 
+  ReactGA.initialize('G-1WMTYK07M8');
   const setGA = () => {
-    ReactGA.initialize('G-1WMTYK07M8');
-    ReactGA.pageview('Init page view');
+    ReactGA.pageview(window.location.pathname + window.location.search);
 
     //fetch all topics images to save them with service worker
     fetch("https://i.ibb.co/FVRQLKr/Animals.png");

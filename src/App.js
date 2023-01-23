@@ -1,22 +1,21 @@
-import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
-import { useEffect, lazy, Suspense } from 'react';
-import './App.scss';
-import ReactGA from 'react-ga';
-import { useContext } from 'react';
-import { addCollectionAndDocuments } from './utils/firebase/firebase.utils';
-import { TopicsContext } from './context/topic.context';
+import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import "./App.scss";
+import ReactGA from "react-ga";
+import { useContext } from "react";
+import { TopicsContext } from "./context/topic.context";
 // import TopicsFull from './utils/topics-full.json';
-import { getTopicsAndDocuments } from './utils/firebase/firebase.utils';
+import { getTopicsAndDocuments } from "./utils/firebase/firebase.utils";
 
-import Home from './routes/home/home.component';
-import Navigation from './routes/navigation/navigation.component';
-import AddPlayers from './routes/players-add/players-add.component';
-import TopicSelect from './routes/topic-select/topic-select.component';
-import Play from './routes/play/play.component';
-import Questions from './routes/questions/questions.component';
-import Vote from './routes/vote/vote.component';
-import Results from './routes/results/results.component';
-import FeedbackStatus from './routes/feedback-success/feedback-success.component';
+import Home from "./routes/home/home.component";
+import Navigation from "./routes/navigation/navigation.component";
+import AddPlayers from "./routes/players-add/players-add.component";
+import TopicSelect from "./routes/topic-select/topic-select.component";
+import Play from "./routes/play/play.component";
+import Questions from "./routes/questions/questions.component";
+import Vote from "./routes/vote/vote.component";
+import Results from "./routes/results/results.component";
+import FeedbackStatus from "./routes/feedback-success/feedback-success.component";
 
 // const Home  = lazy(() => import('./routes/home/home.component')) ;
 // const Navigation  = lazy(() => import('./routes/navigation/navigation.component')) ;
@@ -27,14 +26,12 @@ import FeedbackStatus from './routes/feedback-success/feedback-success.component
 // const Vote  = lazy(() => import('./routes/vote/vote.component')) ;
 // const Results  = lazy(() => import('./routes/results/results.component')) ;
 
-
-
-const  App = () => {
+const App = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { setTopics } = useContext(TopicsContext);
 
-  ReactGA.initialize('G-1WMTYK07M8');
+  ReactGA.initialize("G-1WMTYK07M8");
   const setGA = () => {
     ReactGA.pageview(window.location.pathname + window.location.search);
 
@@ -43,48 +40,51 @@ const  App = () => {
     fetch("https://i.ibb.co/p13nWmg/Fruits.png");
   };
 
-    useEffect(() => {
-        setGA();
-        if ((location.pathname === "/navigate/addPlayer") || (location.pathname === "/navigate/topic") || (location.pathname === "/navigate/play") || (location.pathname === "/navigate/questions") || (location.pathname === "/navigate/vote") || (location.pathname === "/navigate/resutls")) {
-            navigate("/");
-        };
+  useEffect(() => {
+    setGA();
+    if (
+      location.pathname === "/navigate/addPlayer" ||
+      location.pathname === "/navigate/topic" ||
+      location.pathname === "/navigate/play" ||
+      location.pathname === "/navigate/questions" ||
+      location.pathname === "/navigate/vote" ||
+      location.pathname === "/navigate/resutls"
+    ) {
+      navigate("/");
+    }
 
+    const getTopics = async () => {
+      try {
+        const topics = await getTopicsAndDocuments();
+        setTopics(topics);
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
-        const getTopics = async () => {
-          try {
-            const topics = await getTopicsAndDocuments();
-            setTopics(topics);
-          } catch(error) {
-            console.log(error);
-          }
-        }
+    if (navigator.onLine) {
+      getTopics();
+    }
 
-        if(navigator.onLine) {
-          getTopics();
-        }
-
-        // addCollectionAndDocuments("topics", TopicsFull);
-
-    }, []);
+    // addCollectionAndDocuments("topics", TopicsFull);
+  }, []);
 
   return (
-      <div className='app-container'>
-        <Suspense>
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/:feedbackStatus' element={<FeedbackStatus />} />
-            <Route path="/navigate" element={<Navigation />}>
-              <Route path='addplayer' element={<AddPlayers />} />
-              <Route path='topic' element={<TopicSelect />} />
-              <Route path='play' element={<Play />} />
-              <Route path='questions' element={<Questions />} />
-              <Route path='vote' element={<Vote />} />
-              <Route path='resutls' element={<Results />} />
-            </Route>
-          </Routes>
-        </Suspense>
-      </div>
-  )
-}
+    <div className="app-container">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/:feedbackStatus" element={<FeedbackStatus />} />
+        <Route path="/navigate" element={<Navigation />}>
+          <Route path="addplayer" element={<AddPlayers />} />
+          <Route path="topic" element={<TopicSelect />} />
+          <Route path="play" element={<Play />} />
+          <Route path="questions" element={<Questions />} />
+          <Route path="vote" element={<Vote />} />
+          <Route path="resutls" element={<Results />} />
+        </Route>
+      </Routes>
+    </div>
+  );
+};
 
 export default App;

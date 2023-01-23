@@ -1,95 +1,91 @@
 .resutls-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: white;
+
+  @media screen and (min-width: 800px) {
+    width: 800px;
+    height: 100%;
+  }
+
+  .imposter-results-container {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    color: white;
+    margin-top: 130px;
 
     @media screen and (min-width: 800px) {
-        width: 800px;
-        height: 100%;
+      margin-top: 150px;
+      justify-content: flex-start;
     }
 
+    .results-button {
+      margin-top: 80px;
+    }
+  }
 
-    .imposter-results-container {
-        width: 100%;
-        height: 100%;
+  .players-results-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    .players-resutls {
+      width: 100%;
+      height: 400px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+
+      &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px #201f32;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #fff;
+        outline: 1px solid black;
+        border-radius: 10px;
+
+        &:hover {
+          background-color: #fff;
+        }
+      }
+
+      &::-webkit-scrollbar-button {
+        width: 10px;
+      }
+
+      .players {
+        width: 60%;
+        height: auto;
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 130px;
-
-        @media screen and (min-width: 800px) {
-            margin-top: 150px;
-            justify-content: flex-start;
-        }
-
-        .results-button {
-            margin-top: 80px;
-        }
+        text-align: center;
+        justify-content: space-between;
+        align-items: flex-start;
+        border-bottom: 1px dotted black;
+      }
     }
 
-
-    .players-results-container {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-
-        .players-resutls {
-            width: 100%;
-            height: 400px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-
-            &::-webkit-scrollbar {
-                width: 5px;
-            }
-    
-            &::-webkit-scrollbar-track {
-                box-shadow: inset 0 0 6px #201F32;
-            }
-    
-            &::-webkit-scrollbar-thumb {
-                background-color: #3D3F95;
-                outline: 1px solid black;
-                border-radius: 10px;
-    
-                &:hover {
-                    background-color: #625FA5;
-                }
-            }
-    
-            &::-webkit-scrollbar-button {
-                width: 10px;
-            }
-
-            .players {
-                width: 60%;
-                height: auto;
-                display: flex;
-                text-align: center;
-                justify-content: space-between;
-                align-items: flex-start;
-                border-bottom: 1px dotted black;
-            
-            }
-        }
-
-        .results-button {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 30px;
-        }
+    .results-button {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 30px;
     }
-
+  }
 }

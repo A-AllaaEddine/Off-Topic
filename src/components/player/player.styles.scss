@@ -1,92 +1,83 @@
 .player-info-container {
-    width: 100%;
-    height: 60px;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 30px;
+  padding-inline: 15px;
+
+  @media screen and (min-width: 800px) {
+    width: 100vh;
+    justify-content: center;
+  }
+
+  .remove-player-img {
+    width: 25%;
+    height: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    margin-top: 30px;
-    padding-inline: 15px;
 
     @media screen and (min-width: 800px) {
-        width: 100vh;
-        justify-content: center;
+      width: 50px;
+      margin-right: 20px;
+    }
+  }
+
+  .player-info {
+    width: 100%;
+    height: 100%;
+    // margin-right: 100px;
+    display: flex;
+    justify-content: space-around;
+    border: none;
+    background-color: #fff;
+    color: blacks;
+    border-radius: 15px;
+    box-shadow: 5px 5px 5px -1px #000;
+    cursor: pointer;
+
+    @media screen and (min-width: 800px) {
+      width: 50%;
+      justify-content: center;
+      margin-left: 20px;
     }
 
-    .remove-player-img {
-        width: 25%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    &.vote {
+      text-align: center;
 
-        @media screen and (min-width: 800px) {
-            width: 50px;
-            margin-right: 20px;
-        }
-        
-
-        
+      @media screen and (min-width: 800px) {
+        width: 70%;
+        text-align: center;
+        margin: 0px;
+      }
     }
 
-    .player-info {
-        width: 100%;
-        height: 100%;
-        // margin-right: 100px;
-        display: flex;
-        justify-content: space-around;
-        border: none;
-        background-image: linear-gradient( 135deg, #FDEB71 10%, #F8D800 100%);
-        color: blacks;
-        border-radius: 15px;
-        box-shadow: 5px 5px 5px -1px #a5910d;
-        cursor: pointer;
-
-        
-
-        @media screen and (min-width: 800px) {
-            width: 50%;
-            justify-content: center;
-            margin-left: 20px;
-            
-        }
-
-        &.vote {
-            text-align: center;
-
-            @media screen and (min-width: 800px) {
-                width: 70%;
-                text-align: center;
-                margin: 0px;
-            }
-            
-        }
-        
-        .player-name {
-            width: 70%;
-            height: 100%;
-            font-size: 20px;
-            
-        }
-
-        .player-points {
-            width: 30%;
-            height: 100%;
-            font-size: 20px;
-            display: flex;
-            justify-content: flex-end;
-
-            @media screen and (min-width: 800px) {
-                padding-right: 30px;
-            }
-        }
-        h2 {
-            padding-left: 5px ;
-            padding-right: 5px ;
-
-            @media screen and (min-width: 800px) {
-                padding-left: 30px;
-            }
-        }
+    .player-name {
+      width: 70%;
+      height: 100%;
+      font-size: 20px;
     }
 
+    .player-points {
+      width: 30%;
+      height: 100%;
+      font-size: 20px;
+      display: flex;
+      justify-content: flex-end;
+
+      @media screen and (min-width: 800px) {
+        padding-right: 30px;
+      }
+    }
+    h2 {
+      padding-left: 5px;
+      padding-right: 5px;
+
+      @media screen and (min-width: 800px) {
+        padding-left: 30px;
+      }
+    }
+  }
 }

@@ -13,6 +13,7 @@
     display: flex;
     justify-content: space-between;
     position: relative;
+    z-index: 3;
 
     .language-icon {
       width: 35px;

@@ -31,9 +31,9 @@ const HelpDropDown = () => {
         <div className="feedback" onClick={selectFeedBack}>
           {FeedbackAndSuggestions}
         </div>
-        <div className="how-to" onClick={selectHowToPlay}>
+        {/* <div className="how-to" onClick={selectHowToPlay}>
           How to play.
-        </div>
+        </div> */}
       </div>
     </div>
   );
